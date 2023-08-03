@@ -20,6 +20,216 @@ defmodule IpseityWeb.CoreComponents do
   import IpseityWeb.Gettext
 
   @doc """
+  Renders a project card.
+
+  ## Examples
+
+      <.project_card project={project} />
+
+  """
+  def project_card(assigns) do
+    ~H"""
+    <div class="overflow-hidden rounded shadow-lg">
+      <img class="w-full h-auto" src={@project.hero} alt={@project.title} />
+      <%!-- Project Title and Excerpt --%>
+      <div class="px-6 py-4">
+        <div class="mb-2 text-xl font-bold">
+          <%= @project.title %>
+        </div>
+        <p class="text-base text-gray-400">
+          <%= @project.excerpt %>
+        </p>
+      </div>
+      <%!-- Project Tags --%>
+      <div class="px-6 pt-4 pb-2">
+      <%= for tag <- @project.tags do %>
+        <a href={"/categories/#{tag}"} class="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+          #<%= tag %>
+        </a>
+      <% end %>
+      </div>
+      <%!-- Project Action Buttons  --%>
+      <div class="pt-4 pb-2 text-center">
+        <a href={@project.live_url} target="_blank" rel="noopener noreferrer" class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]">
+          View Demo
+        </a>
+        <a href={@project.git_repo} target="_blank" rel="noopener noreferrer" class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]">
+          View Code
+        </a>
+        <a href={@project.case_study} target="_blank" rel="noopener noreferrer" class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]">
+          View Case Study
+        </a>
+      </div>
+    </div>
+    """
+  end
+
+
+  @doc """
+  Renders a post_card.
+
+  ## Examples
+
+      <.post_card post={post} />
+
+  """
+  def post_card(assigns) do
+    ~H"""
+    <div class="h-full overflow-hidden rounded-lg">
+      <img class="object-cover object-center w-full lg:h-72 md:h-48" src={@post.hero} alt="blog"/>
+      <div class="p-6 transition duration-300 ease-in rounded-b-lg hover:bg-green-700 hover:text-white">
+        <h2 class="mb-1 text-base font-medium text-green-300">
+          <%= @post.tags |> List.first %>
+        </h2>
+        <h1 class="mb-3 text-2xl font-semibold">
+          <%= @post.title %>
+        </h1>
+        <p class="mb-3 leading-relaxed">
+          <%= @post.excerpt %>
+        </p>
+        <div class="flex flex-wrap items-center ">
+          <a href={"/blog/#{@post.slug}"} class="inline-flex items-center text-green-300 md:mb-2 lg:mb-0">
+            Read More
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <span class="inline-flex items-center py-1 pr-3 ml-auto mr-3 text-sm leading-none text-gray-400 lg:ml-auto md:ml-0">
+            <svg class="w-4 h-4 mr-1" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <%= @post.read_time %> min read
+          </span>
+        </div>
+      </div>
+    </div>
+    """
+  end
+
+  @doc """
+  Renders a matrix_canvas.
+
+  attr: id, :string, required: true
+
+  ## Examples
+
+      <.matrix_canvas martix={matrix}/>
+
+  """
+  def matrix_canvas(assigns) do
+    ~H"""
+    <canvas id={@matrix.id} class="absolute w-full h-full bg-cover -z-10"/>
+    <script>
+      class Symbol {
+        constructor(x, y, fontSize, canvasHeight) {
+          this.characters =
+            'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          this.x = x;
+          this.y = y;
+          this.fontSize = fontSize;
+          this.text = 'A';
+          this.canvasHeight = canvasHeight;
+          //this.color = 'hsl(' + this.x * 3+ ', 100%, 50%)';
+        }
+
+        draw(context) {
+          //context.font = this.fontSize + 'px monospace';
+          this.text = this.characters.charAt(
+            Math.floor(Math.random() * this.characters.length)
+          );
+          //context.fillStyle = this.color;
+          context.fillText(this.text, this.x * this.fontSize, this.y * this.fontSize);
+          if (this.y * this.fontSize > this.canvasHeight && Math.random() > 0.97) {
+            this.y = 0;
+          } else {
+            this.y += 0.9;
+          }
+        }
+      }
+
+    class Effect {
+      constructor(canvasWidth, canvasHeight) {
+        this.fontSize = 16;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.columns = this.canvasWidth / this.fontSize;
+        this.symbols = [];
+        this.#initialize();
+      }
+      #initialize() {
+        for (let i = 0; i < this.columns; i++) {
+          this.symbols[i] = new Symbol(i, 0, this.fontSize, this.canvasHeight);
+        }
+      }
+      resize(width, height) {
+        this.canvasWidth = width;
+        this.canvasHeight = height;
+        this.columns = this.canvasWidth / this.fontSize;
+        this.symbols = [];
+        this.#initialize();
+      }
+    }
+
+    class Matrix {
+      last = 0;
+      fps = 60;
+      timer = 0;
+
+      constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.effect = new Effect(this.canvas.width, this.canvas.height);
+        this.nextFrame = 1000 / this.fps;
+        this.timer = 0;
+      }
+      width(w) {
+        this.canvas.width = w;
+      }
+      height(h) {
+        this.canvas.height = h;
+      }
+      resize() {
+        this.effect.resize(this.canvas.width, this.canvas.height);
+      }
+
+    }
+
+    const matrix = new Matrix(document.getElementById('<%=@matrix.id%>'));
+    function animate(time) {
+        const deltaTime = time - matrix.last;
+        matrix.fps = time;
+        if (matrix.timer > matrix.nextFrame) {
+          matrix.ctx.textAlign = 'center';
+          matrix.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+          matrix.ctx.fillRect(0, 0, matrix.canvas.width, matrix.canvas.height);
+          matrix.ctx.font = matrix.effect.fontSize + 'px monospace';
+          matrix.ctx.fillStyle = '#03A062';
+          matrix.ctx.fillStyle = '#0aff0a';
+
+          matrix.effect.symbols.forEach(symbol => symbol.draw(matrix.ctx));
+          matrix.timer = 0;
+        } else {
+          matrix.timer += deltaTime;
+        }
+        requestAnimationFrame(animate);
+      }
+      animate(0);
+      window.addEventListener('resize', () => {
+        matrix.width(window.innerWidth);
+        matrix.height(window.innerHeight);
+        matrix.resize();
+      });
+    </script>
+    """
+  end
+
+
+
+  @doc """
   Renders a modal.
 
   ## Examples
