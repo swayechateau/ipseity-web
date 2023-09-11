@@ -18,12 +18,26 @@ defmodule IpseityWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/about", PageController, :about
+    get "/projects", PageController, :projects
+    get "/blog", PageController, :blog
+    get "/blog/:post", PageController, :post
+    get "/search", PageController, :search
+    # get "/login", PageController, :login
+    # get "/contact", PageController, :contact
+    # get "/privacy", PageController, :privacy
+    # get "/terms", PageController, :terms
+    # get "/sitemap.xml", PageController, :sitemap
+    # get "/robots.txt", PageController, :robots
+
+
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", IpseityWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/:version", IpseityWeb do
+    pipe_through :api
+    # routes to be used by external apps
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:ipseity, :dev_routes) do
