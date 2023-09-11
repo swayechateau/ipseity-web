@@ -1,0 +1,442 @@
+{
+	"categories": {
+		"en-gb": "Categories",
+		"fr-fr": "Catégories",
+		"ja": "カテゴリー",
+		"zh-cn": "类别",
+		"cy": "Categorïau",
+		"ko-kr": "범주",
+		"es-es": "Categorías",
+		"de-de": "Kategorien"
+	},
+	"comments": {
+		"en-gb": "Comments",
+		"fr-fr": "Commentaires",
+		"ja": "コメント",
+		"zh-cn": "注释",
+		"cy": "Sylwadau",
+		"ko-kr": "코멘트",
+		"es-es": "Comentarios",
+		"de-de": "Kommentare"
+	},
+	"commentsDisabled": {
+		"en-gb": "Comments Disabled",
+		"fr-fr": "Commentaires Désactivé",
+		"ja": "コメントは無効です",
+		"zh-cn": "评论已禁用",
+		"cy": "Sylwadau Anabl",
+		"ko-kr": "댓글 비활성화",
+		"es-es": "Comentarios Desactivado",
+		"de-de": "Kommentare Deaktiviert"
+	},
+	"publishedBy": {
+		"en-gb": "published by",
+		"fr-fr": "Publié par",
+		"ja": "によって公開",
+		"zh-cn": "由...出版",
+		"cy": "Cyhoeddwyd gan",
+		"ko-kr": "에 의해 출판 됨",
+		"es-es": "publicado por",
+		"de-de": "Veröffentlicht von"
+	},
+	"contact": {
+		"en-gb": "Contact",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"created": {
+		"en-gb": "Created",
+		"fr-fr": "établi",
+		"ja": "作成した",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"dashboard": {
+		"en-gb": "Dashboard",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"disabled": {
+		"en-gb": "",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"enterEmail": {
+		"en-gb": "",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"enterPassword": {
+		"en-gb": "",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"files": {
+		"en-gb": "Files",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"goToTop": {
+		"en-gb": "Go To Top",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"next": {
+		"en-gb": "Next",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"noResultsFound": {
+		"en-gb": "No Results Found",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"of": {
+		"en-gb": "Of",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"page": {
+		"en-gb": "Page",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"pages": {
+		"en-gb": "Pages",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"post": {
+		"en-gb": "Post",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"posts": {
+		"en-gb": "Posts",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"previous": {
+		"en-gb": "Previous",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"project": {
+		"en-gb": "Project",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"projects": {
+		"en-gb": "Projects",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"readMore": {
+		"en-gb": "Read More",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"recent": {
+		"en-gb": "Recent",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"recentBlogPosts": {
+		"en-gb": "Recent Blog Posts",
+		"fr-fr": "Articles de blog récents",
+		"ja": "最近のブログ投稿",
+		"zh-cn": "最近的博文",
+		"cy": "Swyddi Blog Diweddar",
+		"ko-kr": "최근 블로그 게시물",
+		"es-es": "Entradas recientes del blog",
+		"de-de": "Aktuelle Blog-Beiträge"
+	},
+	"recentPosts": {
+		"en-gb": "Recent Posts",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"recentProjects": {
+		"en-gb": "Recent Projects",
+		"fr-fr": "les projets récents",
+		"ja": "最近のプロジェクト",
+		"zh-cn": "最近的项目",
+		"cy": "Prosiectau Diweddar",
+		"ko-kr": "최근 프로젝트",
+		"es-es": "proyectos recientes",
+		"de-de": "Letzte Projekte"
+	},
+	"recentVideos" : {
+		"en-gb": "Recent Videos",
+		"fr-fr": "vidéos récentes",
+		"ja": "最近のビデオ",
+		"zh-cn": "最近的视频",
+		"cy": "fideos diweddar",
+		"ko-kr": "최근 동영상",
+		"es-es": "Videos recientes",
+		"de-de": "Aktuelle Videos"
+	},
+	"results": {
+		"en-gb": "Results",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"resultsFor": {
+		"en-gb": "Results For",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"search": {
+		"en-gb": "Search",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"searchArticles": {
+		"en-gb": "Search Articles",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"searchBlog": {
+		"en-gb": "Search Blog",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"searchSite": {
+		"en-gb": "Search Site",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"settings": {
+		"en-gb": "Settings",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"subscribe": {
+		"en-gb": "Subscribe",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"tags": {
+		"en-gb": "Tags",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"translations": {
+		"en-gb": "Translations",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"updated": {
+		"en-gb": "updated",
+		"fr-fr": "édité",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"users": {
+		"en-gb": "Users",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"viewAllPosts": {
+		"en-gb": "View All Posts",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"viewCode": {
+		"en-gb": "View Code",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"viewDemo": {
+		"en-gb": "View Demo",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	},
+	"vistChannel": {
+		"en-gb": "Visit Channel",
+		"fr-fr": "",
+		"ja": "",
+		"zh-cn": "",
+		"cy": "",
+		"ko-kr": "",
+		"es-es": "",
+		"de-de": ""
+	}
+}

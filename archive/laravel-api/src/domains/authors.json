@@ -1,0 +1,53 @@
+[
+    {
+        "author_name" : "Swaye Chateau",
+        "author_picture" : "https://img.favpng.com/10/0/4/youtube-google-play-avatar-google-search-png-favpng-TSgJhDxG6hWHNAL8zqCqXc8Lm.jpg",
+        "author_cv": "https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png",
+        "translations": {
+            "en-gb": {
+                "author_firstname":"Swaye",
+                "author_middlename": "Kai Norman Lawrence",
+                "author_lastname": "Chateau",
+                "author_professional_title": "Software Developer, Photographer and Vlogger",
+                "author_location": "United Kingdom",
+                "author_bio": {
+                    "time" : 1653206243080,
+                    "blocks" : [
+                        {
+                            "id" : "JC7wDqr-21",
+                            "type" : "paragraph",
+                            "data" : {
+                                "text" : "Currently working with blochchains in the digital identity space using Verifiable Credentials and Self-Soverign Identity in a decentralised enviroment."
+                            }
+                        },
+                        {
+                            "id" : "_El_g4KTiT",
+                            "type" : "paragraph",
+                            "data" : {
+                                "text" : "Hello, Swaye here. I am a software developer, who likes to learn and build things, I am currently learning animation and Mandarin. My passion for tech and knowledge is what drives me to constantly want to learn new things and the latest creations out there!!"
+                            }
+                        },
+                        {
+                            "id" : "z66bKsZVao",
+                            "type" : "paragraph",
+                            "data" : {
+                                "text" : "Being an open individual, I have tailored my site to reflect who I am, you could say this site is my life journal and toy box. I have not invested time into building this site for anyone in particular, unless you know me or are trying to get to know, then welcome to my world!!!"
+                            }
+                        },
+                        {
+                            "id" : "9UWD2XKpHl",
+                            "type" : "paragraph",
+                            "data" : {
+                                "text" : "P.S. For those that don't know me, I can be a tad socially awkward... Or maybe more than a tad, I will let you decide that! :p"
+                            }
+                        }
+                    ],
+                    "version" : "2.24.3"
+                },
+                "author_catchphase": "Coding One Day At a Time!",
+                "author_image1": "https://yt3.ggpht.com/GojMrcrTTQDEx221wqyX_iIlLdmamrD6LQDwOY9Anv25sh2BgUiZ-LCVAQ4SPohIInh_O_i3zkY=s900-c-k-c0x00ffffff-no-rj",
+                "author_image2": "https://file.swayechateau.com/view/swayechateaudZ9YM8r3Rx8ubLAN8nzn29"
+            }
+        }
+    }
+]

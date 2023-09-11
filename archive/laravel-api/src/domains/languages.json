@@ -1,0 +1,50 @@
+[
+    {
+        "language_name" : "English (United Kingdom)",
+        "language_native_name" : "English",
+        "language_code" : "en-gb",
+        "language_icon": "https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png"
+    },
+    {
+        "language_name" : "French (France)",
+        "language_native_name" : "Français",
+        "language_code" : "fr-fr",
+        "language_icon": "https://cdn.countryflags.com/thumbs/france/flag-400.png"
+    },
+    {
+        "language_name" : "Japanese",
+        "language_native_name" : "日本語",
+        "language_code" : "ja",
+        "language_icon": "https://cdn.countryflags.com/thumbs/japan/flag-400.png"
+    },
+    {
+        "language_name" : "Chinese (PRC)",
+        "language_native_name" : "中文",
+        "language_code" : "zh-cn",
+        "language_icon": "https://cdn.countryflags.com/thumbs/china/flag-400.png"
+    },
+    {
+        "language_name" : "Welsh",
+        "language_native_name" : "Cymraeg",
+        "language_code" : "cy",
+        "language_icon": "https://cdn.countryflags.com/thumbs/wales/flag-400.png"
+    },
+    {
+        "language_name" : "Korean (South Korea)",
+        "language_native_name" : "한국인",
+        "language_code" : "ko-kr",
+        "language_icon": "https://cdn.countryflags.com/thumbs/south-korea/flag-400.png"
+    },
+    {
+        "language_name" : "Spanish (Spain)",
+        "language_native_name" : "Español",
+        "language_code" : "es-es",
+        "language_icon": "https://cdn.countryflags.com/thumbs/spain/flag-400.png"
+    },
+    {
+        "language_name" : "German (Germany)",
+        "language_native_name" : "Deutsch",
+        "language_code" : "de-de",
+        "language_icon": "https://cdn.countryflags.com/thumbs/germany/flag-400.png"
+    }
+]

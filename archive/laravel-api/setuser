@@ -1,0 +1,12 @@
+#!/bin/bash
+
+user="$(id -u):$(id -g)"
+echo "Setting docker user and group to: ${user}"
+
+if [ $(./scripts/checkos) == "Mac" ]
+then
+    sed -i "" "s/^DOCKER_USER=.*/DOCKER_USER=${user}/" ${PWD}/.env
+else
+    sed -i "s/^DOCKER_USER=.*/DOCKER_USER=${user}/" ${PWD}/.env
+fi
+

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# create .env file
+if [ ! -f "${PWD}/.env" ]
+then
+    cp .env.example .env
+    ./genkey
+    ./setuser
+fi
+
+# check if proxy is up
+if [[ ! -d "${PWD}/proxy" ]]
+    then
+    git clone git@gitlab.com:swaye/dev/proxy.git
+fi
+
+# set proxy install permissions
+chown $(id -u):$(id -g) ./proxy/install.sh
+chmod u+x ./proxy/install.sh
+
+# run proxy install
+./proxy/install.sh
+
+# run proxy container
+docker-compose -f ./proxy/docker-compose.yml up -d
+
+# load docker project
+docker-compose up -d
+
+./composer install

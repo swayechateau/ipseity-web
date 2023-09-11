@@ -1,0 +1,513 @@
+{
+    "photography": {
+        "en-gb": {
+            "category_text": "photography",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "la photographie",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "写真撮影",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "摄影",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "ffotograffiaeth",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "사진술",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "fotografía",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "fotografie",
+            "category_description": ""
+        }
+    },
+    "travel": {
+        "en-gb": {
+            "category_text": "travel",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "voyage",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "\u65c5\u884c",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "leisure": {
+        "en-gb": {
+            "category_text": "leisure",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "loisir",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "\u4f59\u6687",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "awesome": {
+        "en-gb": {
+            "category_text": "awesome",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "impressionnant",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "\u9a5a\u304f\u3070\u304b\u308a",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "sample": {
+        "en-gb": {
+            "category_text": "sample",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "category_test": {
+        "en-gb": {
+            "category_text": "category_test",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "category_tester",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "development": {
+        "en-gb": {
+            "category_text": "development",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "d\u00e9veloppement",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "\u958b\u767a",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "api": {
+        "en-gb": {
+            "category_text": "api",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "vue": {
+        "en-gb": {
+            "category_text": "vue",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "laravel": {
+        "en-gb": {
+            "category_text": "laravel",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "lumen": {
+        "en-gb": {
+            "category_text": "lumen",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "php": {
+        "en-gb": {
+            "category_text": "php",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "web": {
+        "en-gb": {
+            "category_text": "Website",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "react": {
+        "en-gb": {
+            "category_text": "reactjs",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    },
+    "react-native": {
+        "en-gb": {
+            "category_text": "react native",
+            "category_description": ""
+        },
+        "fr-fr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ja": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "zh-cn": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "cy": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "ko-kr": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "es-es": {
+            "category_text": "",
+            "category_description": ""
+        },
+        "de-de": {
+            "category_text": "",
+            "category_description": ""
+        }
+    }
+
+}

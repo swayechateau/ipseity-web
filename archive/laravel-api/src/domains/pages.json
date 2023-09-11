@@ -1,0 +1,628 @@
+[
+    {
+        "published": 0,
+        "index": "home",
+        "hero": "https://swayechateau.com/media/image/deep-blue.jpg",
+        "slug": "/",
+        "translations": {
+            "en-gb": {
+                "name": "Home",
+                "title": "Welcome to my world!",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Accueil",
+                "title": "Bienvenue dans mon monde!",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30db\u30fc\u30e0",
+                "title": "\u79c1\u306e\u4e16\u754c\u3078\u3088\u3046\u3053\u305d",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "about",
+        "hero": "https://swayechateau.com/media/image/aboutme.png",
+        "slug": "/about-me",
+        "translations": {
+            "en-gb": {
+                "name": "About",
+                "title": "About Me",
+                "sub_title": "Coding One Day At a Time!",
+                "description": null,
+                "content": {
+                    "name": "Swaye Chateau",
+                    "about": "<p>Hello, Swaye here. I am a software developer, who likes to learn and build things, I am currently learning animation and Mandarin. My passion for tech and knowledge is what drives me to constantly want to learn new things and the latest creations out there!!<\/p><p>Being an open individual, I have tailored my site to reflect who I am, you could say this site is my life journal and toy box. I have not invested time into building this site for anyone in particular, unless you know me or are trying to get to know, then welcome to my world!!!<\/p><p>P.S. For those that don't know me, I can be a tad socially awkward... Or maybe more than a tad, I will let you decide that! :p<\/p>",
+                    "skills": {
+                        "title": "Skills <span class='grey--text'>(To Pay The Bills)<\/span>",
+                        "intro": "If you are on my site to assess my skills for work, my CV can be found here: <a href='https://cv.swayechateau.com' target='_blank'>Curriculum Vitae<\/a>"
+                    },
+                    "status": "Coding One Day At a Time."
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Sur",
+                "title": "\u00c0 propos de moi",
+                "sub_title": "coder un jour \u00e0 la fois",
+                "description": null,
+                "content": {
+                    "name": "Ch\u00e2teau de Swaye",
+                    "about": "<p>Bonjour, Swaye ici. Je suis un d\u00e9veloppeur de logiciels, qui aime apprendre et construire des choses, j'apprends actuellement l'animation et le mandarin. Ma passion pour la technologie et le savoir me pousse \u00e0 vouloir constamment apprendre de nouvelles choses et les derni\u00e8res cr\u00e9ations!<\/p><p>\u00c9tant un individu ouvert, j'ai adapt\u00e9 mon site pour refl\u00e9ter qui je suis, on pourrait dire que ce site est mon journal de vie et mon coffre \u00e0 jouets. Je n'ai pas investi de temps dans la construction de ce site pour quelqu'un en particulier, \u00e0 moins que vous ne me connaissiez ou que vous n'essayiez de vous conna\u00eetre, alors bienvenue dans mon monde !!!<\/p><p>P.S. Pour ceux qui ne me connaissent pas, je peux \u00eatre un peu maladroit socialement ... Ou peut-\u00eatre plus qu'un peu, je vous laisse d\u00e9cider! :p<\/p>",
+                    "skills": {
+                        "title": "Comp\u00e9tences <span class='grey--text'>(Payer les factures)<\/span>",
+                        "intro": "Si vous \u00eates sur mon site pour \u00e9valuer mes comp\u00e9tences professionnelles, mon CV se trouve ici: <a href='https:\/\/cv.swayechateau.com' target='_blank'>Curriculum Vitae<\/a>"
+                    },
+                    "status": "\u00c0 propos de moi"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u7d04",
+                "title": "\u79c1\u306b\u3064\u3044\u3066",
+                "sub_title": "1\u65e51\u56de\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0",
+                "description": null,
+                "content": {
+                    "name": "\u30b7\u30e3\u30c8\u30fc\u30fb\u30b9\u30a6\u30a7\u30a4",
+                    "about": "<p>\u3053\u3093\u306b\u3061\u306f\u3001\u30b9\u30a6\u30a7\u30a4 \u3067\u3059\u3002\u79c1\u306f\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u958b\u767a\u8005\u3067\u3042\u308a\u3001\u7269\u4e8b\u3092\u5b66\u3073\u69cb\u7bc9\u3059\u308b\u306e\u304c\u597d\u304d\u3067\u3001\u73fe\u5728\u30a2\u30cb\u30e1\u30fc\u30b7\u30e7\u30f3\u3068\u6a19\u6e96\u4e2d\u56fd\u8a9e\u3092\u5b66\u3093\u3067\u3044\u307e\u3059\u3002\u6280\u8853\u3068\u77e5\u8b58\u306b\u5bfe\u3059\u308b\u79c1\u306e\u60c5\u71b1\u306f\u3001\u5e38\u306b\u65b0\u3057\u3044\u3053\u3068\u3084\u305d\u3053\u306b\u3042\u308b\u6700\u65b0\u306e\u4f5c\u54c1\u3092\u5b66\u3073\u305f\u3044\u3068\u601d\u3046\u3088\u3046\u306b\u99c6\u308a\u7acb\u3066\u308b\u3082\u306e\u3067\u3059<\/p><p>\u30aa\u30fc\u30d7\u30f3\u306a\u500b\u4eba\u3067\u3042\u308b\u305f\u3081\u3001\u79c1\u306f\u81ea\u5206\u304c\u8ab0\u3067\u3042\u308b\u304b\u3092\u53cd\u6620\u3059\u308b\u3088\u3046\u306b\u30b5\u30a4\u30c8\u3092\u8abf\u6574\u3057\u307e\u3057\u305f\u3002\u3053\u306e\u30b5\u30a4\u30c8\u306f\u79c1\u306e\u4eba\u751f\u65e5\u8a18\u3067\u3042\u308a\u3001\u304a\u3082\u3061\u3083\u7bb1\u3067\u3059\u3002\u3042\u306a\u305f\u304c\u79c1\u3092\u77e5\u3063\u3066\u3044\u308b\u304b\u3001\u77e5\u308a\u305f\u304c\u3063\u3066\u3044\u306a\u3044\u9650\u308a\u3001\u79c1\u306f\u3053\u306e\u30b5\u30a4\u30c8\u3092\u7279\u306b\u8ab0\u304b\u306e\u305f\u3081\u306b\u69cb\u7bc9\u3059\u308b\u3053\u3068\u306b\u6642\u9593\u3092\u8cbb\u3084\u3057\u3066\u3044\u307e\u305b\u3093\u3002<\/p><p>\u79c1\u3092\u77e5\u3089\u306a\u3044\u4eba\u3001\u79c1\u306f\u5c11\u3057\u793e\u4f1a\u7684\u306b\u5384\u4ecb\u306a\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002<\/p>",
+                    "skills": {
+                        "title": "\u30b9\u30ad\u30eb <span class='grey--text'>(\u624b\u5f62\u3092\u652f\u6255\u3046)<\/span>",
+                        "intro": "\u4ed5\u4e8b\u306e\u305f\u3081\u306e\u30b9\u30ad\u30eb\u3092\u8a55\u4fa1\u3059\u308b\u305f\u3081\u306b\u79c1\u306e\u30b5\u30a4\u30c8\u306b\u3044\u308b\u5834\u5408\u3001\u79c1\u306e\u5c65\u6b74\u66f8\u306f\u3053\u3053\u3067\u898b\u3064\u3051\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059 <a href='https:\/\/cv.swayechateau.com' target='_blank'>\u5c65\u6b74\u66f8<\/a>"
+                    },
+                    "status": "1\u65e51\u56de\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0"
+                },
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "projects",
+        "hero": "https://swayechateau.com/media/image/futaba-computer.jpg",
+        "slug": "/projects",
+        "translations": {
+            "en-gb": {
+                "name": "Projects",
+                "title": "Projects!!!!!!",
+                "sub_title": "Assortments of projects",
+                "description": null,
+                "content": {
+                    "menu": [
+                        "All", 
+                        "Open Source", 
+                        "Closed Source"
+                    ]
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Projets",
+                "title": "Projets!!!!",
+                "sub_title": "Assortiments de projets",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8",
+                "title": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8!!!",
+                "sub_title": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306e\u54c1\u63c3\u3048",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "blog",
+        "hero": "https://swayechateau.com/media/image/anime-girl-futuristic-city-computer-short-hair-coffee-25464.jpeg",
+        "slug": "/blog",
+        "translations": {
+            "en-gb": {
+                "name": "Blog",
+                "title": "The Life Of Swaye",
+                "sub_title": "Etching my journey, One post at a time",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Blog",
+                "title": "L'art du voyage",
+                "sub_title": "Trouver la beaut\u00e9, un vol \u00e0 la fois",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30d6\u30ed\u30b0",
+                "title": "\u65c5\u884c\u306e\u82b8\u8853",
+                "sub_title": "\u7f8e\u3092\u898b\u3064\u3051\u308b\u3001\u4e00\u5ea6\u306b1\u3064\u306e\u30d5\u30e9\u30a4\u30c8",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "blog-categories",
+        "hero": "https://swayechateau.com/media/image/anime-girl-futuristic-city-computer-short-hair-coffee-25464.jpeg",
+        "slug": "/blog/categories",
+        "translations": {
+            "en-gb": {
+                "name": "Categories",
+                "title": "The Life Of Swaye",
+                "sub_title": "Etching my journey, One post at a time",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Blog",
+                "title": "L'art du voyage",
+                "sub_title": "Trouver la beaut\u00e9, un vol \u00e0 la fois",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30d6\u30ed\u30b0",
+                "title": "\u65c5\u884c\u306e\u82b8\u8853",
+                "sub_title": "\u7f8e\u3092\u898b\u3064\u3051\u308b\u3001\u4e00\u5ea6\u306b1\u3064\u306e\u30d5\u30e9\u30a4\u30c8",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "videos",
+        "hero": "https://swayechateau.com/media/image/anime-girl-futuristic-city-computer-short-hair-coffee-25464.jpeg",
+        "slug": "/videos",
+        "translations": {
+            "en-gb": {
+                "name": "Videos",
+                "title": "The Life Of Swaye",
+                "sub_title": "Etching my journey, One post at a time",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Blog",
+                "title": "L'art du voyage",
+                "sub_title": "Trouver la beaut\u00e9, un vol \u00e0 la fois",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30d6\u30ed\u30b0",
+                "title": "\u65c5\u884c\u306e\u82b8\u8853",
+                "sub_title": "\u7f8e\u3092\u898b\u3064\u3051\u308b\u3001\u4e00\u5ea6\u306b1\u3064\u306e\u30d5\u30e9\u30a4\u30c8",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "course",
+        "hero": "https://swayechateau.com/media/image/anime-girl-futuristic-city-computer-short-hair-coffee-25464.jpeg",
+        "slug": "/courses",
+        "translations": {
+            "en-gb": {
+                "name": "Courses",
+                "title": "The Life Of Swaye",
+                "sub_title": "Etching my journey, One post at a time",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Blog",
+                "title": "L'art du voyage",
+                "sub_title": "Trouver la beaut\u00e9, un vol \u00e0 la fois",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30d6\u30ed\u30b0",
+                "title": "\u65c5\u884c\u306e\u82b8\u8853",
+                "sub_title": "\u7f8e\u3092\u898b\u3064\u3051\u308b\u3001\u4e00\u5ea6\u306b1\u3064\u306e\u30d5\u30e9\u30a4\u30c8",
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "login",
+        "hero": "https://swayechateau.com/media/image/kaneki.jpg",
+        "slug": "/login",
+        "translations": {
+            "en-gb": {
+                "name": "Login",
+                "title": "Login Into This App",
+                "sub_title": null,
+                "description": null,
+                "content": {
+                    "email": "Email Address",
+                    "submit": "Login",
+                    "password": "Password"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "S'identifier",
+                "title": "Connectez-vous \u00e0 cette application",
+                "sub_title": null,
+                "description": null,
+                "content": {
+                    "email": "Adresse e-mail",
+                    "submit": "S'identifier",
+                    "password": "Mot de passe"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30ed\u30b0\u30a4\u30f3\u3059\u308b",
+                "title": "\u3053\u306e\u30a2\u30d7\u30ea\u306b\u30ed\u30b0\u30a4\u30f3\u3057\u3066\u304f\u3060\u3055\u3044",
+                "sub_title": null,
+                "description": null,
+                "content": {
+                    "email": "\u96fb\u5b50\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9",
+                    "submit": "\u30ed\u30b0\u30a4\u30f3\u3059\u308b",
+                    "password": "\u30d1\u30b9\u30ef\u30fc\u30c9"
+                },
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "downloads",
+        "hero": "https://swayechateau.com/media/image/kaneki.jpg",
+        "slug": "/downloads",
+        "translations": {
+            "en-gb": {
+                "name": "Downloads",
+                "title": "Downloads",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Downloads",
+                "title": "Downloads",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9",
+                "title": "\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "curriculum-vitae",
+        "hero": null,
+        "slug": "/curriculum-vitae",
+        "translations": {
+            "en-gb": {
+                "name": "Curriculum Vitae",
+                "title": null,
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "Curriculum Vitae",
+                "title": null,
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u5c65\u6b74\u66f8",
+                "title": null,
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "404",
+        "hero": "https://swayechateau.com/media/image/lost-city.jpg",
+        "slug": "/404",
+        "translations": {
+            "en-gb": {
+                "name": "404",
+                "title": "Whoops, 404!",
+                "sub_title": "Seems, You Are Lost Traveller!",
+                "description": null,
+                "content": {
+                    "return": "Show me the way!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "404",
+                "title": "Oups, 404!",
+                "sub_title": "Semble, vous \u00eates perdu voyageur!",
+                "description": null,
+                "content": {
+                    "return": "montre moi le chemin!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "404",
+                "title": "\u304a\u3063\u3068 404",
+                "sub_title": "\u65c5\u884c\u8005\u3001\u3042\u306a\u305f\u306f\u5931\u308f\u308c\u307e\u3057\u305f",
+                "description": null,
+                "content": {
+                    "return": "\u9053\u3092\u793a\u3059"
+                },
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "408",
+        "hero": "https://swayechateau.com/media/image/lost-city.jpg",
+        "slug": "/408",
+        "translations": {
+            "en-gb": {
+                "name": "408",
+                "title": "Whoops, 408!",
+                "sub_title": "Seems, You Are Lost Traveller!",
+                "description": null,
+                "content": {
+                    "return": "Show me the way!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "408",
+                "title": "Oups, 408!",
+                "sub_title": "Semble, vous \u00eates perdu voyageur!",
+                "description": null,
+                "content": {
+                    "return": "montre moi le chemin!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "408",
+                "title": "\u304a\u3063\u3068 408",
+                "sub_title": "\u65c5\u884c\u8005\u3001\u3042\u306a\u305f\u306f\u5931\u308f\u308c\u307e\u3057\u305f",
+                "description": null,
+                "content": {
+                    "return": "\u9053\u3092\u793a\u3059"
+                },
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "401",
+        "hero": "https://swayechateau.com/media/image/lost-city.jpg",
+        "slug": "/401",
+        "translations": {
+            "en-gb": {
+                "name": "401",
+                "title": "Whoops, 401!",
+                "sub_title": "Seems, You Are Lost Traveller!",
+                "description": null,
+                "content": {
+                    "return": "Show me the way!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "401",
+                "title": "Oups, 401!",
+                "sub_title": "Semble, vous \u00eates perdu voyageur!",
+                "description": null,
+                "content": {
+                    "return": "montre moi le chemin!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "401",
+                "title": "\u304a\u3063\u3068 401",
+                "sub_title": "\u65c5\u884c\u8005\u3001\u3042\u306a\u305f\u306f\u5931\u308f\u308c\u307e\u3057\u305f",
+                "description": null,
+                "content": {
+                    "return": "\u9053\u3092\u793a\u3059"
+                },
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "_505",
+        "hero": "https://swayechateau.com/media/image/lost-city.jpg",
+        "slug": "/505",
+        "translations": {
+            "en-gb": {
+                "name": "505",
+                "title": "Whoops, 505!",
+                "sub_title": "Seems, You Are Lost Traveller!",
+                "description": null,
+                "content": {
+                    "return": "Show me the way!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "505",
+                "title": "Oups, 505!",
+                "sub_title": "Semble, vous \u00eates perdu voyageur!",
+                "description": null,
+                "content": {
+                    "return": "montre moi le chemin!"
+                },
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "505",
+                "title": "\u304a\u3063\u3068 505",
+                "sub_title": "\u65c5\u884c\u8005\u3001\u3042\u306a\u305f\u306f\u5931\u308f\u308c\u307e\u3057\u305f",
+                "description": null,
+                "content": {
+                    "return": "\u9053\u3092\u793a\u3059"
+                },
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "dashboard",
+        "hero": null,
+        "slug": "/dashboard",
+        "translations": {
+            "en-gb": {
+                "name": "Dashboard",
+                "title": "Dashboard",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "portail",
+                "title": "portail",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9",
+                "title": "\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    },
+    {
+        "published": 0,
+        "index": "posts",
+        "hero": null,
+        "slug": "/blog/posts",
+        "translations": {
+            "en-gb": {
+                "name": "posts",
+                "title": "Posts",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "fr-fr": {
+                "name": "portail",
+                "title": "portail",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            },
+            "ja": {
+                "name": "\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9",
+                "title": "\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9",
+                "sub_title": null,
+                "description": null,
+                "content": null,
+                "aside": 0,
+                "meta": null
+            }
+        }
+    }
+]

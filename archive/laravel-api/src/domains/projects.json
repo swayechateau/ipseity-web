@@ -1,0 +1,312 @@
+[
+    {
+        "project_index": "portfolio",
+        "project_hero": "https://swayechateau.com/media/image/projects/Portfolio-HomePage.jpg",
+        "project_git_url": null,
+        "project_demo_url": "https://swayechateau.com",
+        "project_open_source": 0,
+        "tags": [
+            "laravel",
+            "vue",
+            "web"
+        ],
+        "translations": {
+            "en-gb": {
+                "project_name": "Portfolio",
+                "project_description": "You are currently looking at it :p",
+                "project_content": {
+                    "time": 1653461055220,
+                    "blocks": [
+                        {
+                            "id": "gXJgs4neDn",
+                            "type": "paragraph",
+                            "data": {
+                                "text": "You are currently looking at this project, made using Vue.js for the frontend, Laravel (PHP) for the backend and postgres for the database."
+                            }
+                        }
+                    ],
+                    "version": "2.23.2"
+                }
+            },
+            "fr-fr": {
+                "project_name": "Portefeuille",
+                "project_description": "Vous le regardez!",
+                "project_content": null
+            },
+            "ja": {
+                "project_name": "\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa",
+                "project_description": "\u3042\u306a\u305f\u306f\u305d\u308c\u3092\u898b\u3066\u3044\u307e\u3059\uff01",
+                "project_content": null
+            }
+        }
+    },
+    {
+        "project_index": "vs-social",
+        "project_hero": "https://cdn.vuetifyjs.com/images/cards/desert.jpg",
+        "project_git_url": "https://github.com/Ki-Tech/vs-social",
+        "project_demo_url": null,
+        "project_open_source": 0,
+        "tags": null,
+        "translations": {
+            "en-gb": {
+                "project_name": "VS Social",
+                "project_description": null,
+                "project_content": null
+            },
+            "fr-fr": {
+                "project_name": "VS Sociale",
+                "project_description": null,
+                "project_content": null
+            },
+            "ja": {
+                "project_name": "VS \u30bd\u30fc\u30b7\u30e3\u30eb",
+                "project_description": null,
+                "project_content": null
+            }
+        }
+    },
+    {
+        "project_index": "movie-list",
+        "project_hero": "https://swayechateau.com/media/image/projects/movie-list-search.jpg",
+        "project_git_url": "https://github.com/swayechateau/react-movie-list",
+        "project_demo_url": "https://ml.swayechateau.com",
+        "project_open_source": 1,
+        "tags": [
+            "react",
+            "web"
+        ],
+        "translations": {
+            "en-gb": {
+                "project_name": "Movie List",
+                "project_description": "A simple react frontend for the OMDb API",
+                "project_content": {
+                    "time": 1653461131650,
+                    "blocks": [
+                        {
+                            "id": "gXJgs4neDn",
+                            "type": "paragraph",
+                            "data": {
+                                "text": "Built with React and vanilla css, I chose to complete this project after failing an interview. I saw it as a good opportunity to go over the basics and brush up on popular frameworks."
+                            }
+                        }
+                    ],
+                    "version": "2.23.2"
+                }
+            },
+            "fr-fr": {
+                "project_name": "Liste de Film",
+                "project_description": null,
+                "project_content": null
+            },
+            "ja": {
+                "project_name": "\u6620\u753b\u30ea\u30b9\u30c8",
+                "project_description": null,
+                "project_content": null
+            }
+        }
+    },
+    {
+        "project_index": "lgbt-best",
+        "project_hero": "https://swayechateau.com/media/image/projects/lgbt.best-portal.png",
+        "project_git_url": null,
+        "project_demo_url": "https://lgbt.best",
+        "project_open_source": 0,
+        "tags": [
+            "laravel",
+            "react-native",
+            "vue",
+            "react"
+        ],
+        "translations": {
+            "en-gb": {
+                "project_name": "Lgbt.best",
+                "project_description": "Business directory for Lgbt friendly organisations",
+                "project_content": {
+                    "time": 1653461164976,
+                    "blocks": [
+                        {
+                            "id": "gXJgs4neDn",
+                            "type": "paragraph",
+                            "data": {
+                                "text": "Lgbt.best require a bespoke headless cms, which was built in laravel. A client website and mobile app are still in development."
+                            }
+                        }
+                    ],
+                    "version": "2.23.2"
+                }
+            },
+            "fr-fr": {
+                "project_name": "Lgbt.best",
+                "project_description": "Business directory for Lgbt friendly organisations",
+                "project_content": {
+                    "time": 1653461164976,
+                    "blocks": [
+                        {
+                            "id": "gXJgs4neDn",
+                            "type": "paragraph",
+                            "data": {
+                                "text": "Lgbt.best require a bespoke headless cms, which was built in laravel. A client website and mobile app are still in development."
+                            }
+                        }
+                    ],
+                    "version": "2.23.2"
+                }
+            },
+            "ja": {
+                "project_name": "Lgbt.best",
+                "project_description": "Business directory for Lgbt friendly organisations",
+                "project_content": {
+                    "time": 1653461164976,
+                    "blocks": [
+                        {
+                            "id": "gXJgs4neDn",
+                            "type": "paragraph",
+                            "data": {
+                                "text": "Lgbt.best require a bespoke headless cms, which was built in laravel. A client website and mobile app are still in development."
+                            }
+                        }
+                    ],
+                    "version": "2.23.2"
+                }
+            }
+        }
+    },
+    {
+        "project_index": "file-server",
+        "project_hero": "https://file.swayechateau.com/view/globaliyndTnSCK14onpASVq7n5?share_code=s5LUL0lAdDLS",
+        "project_git_url": "https://github.com/swayechateau/fileserver",
+        "project_demo_url": "https://file.swayechateau.com",
+        "project_open_source": 1,
+        "tags": [
+            "lumen",
+            "php"
+        ],
+        "translations": {
+            "en-gb": {
+                "project_name": "File Server",
+                "project_description": null,
+                "project_content": null
+            },
+            "fr-fr": {
+                "project_name": "File Server",
+                "project_description": null,
+                "project_content": null
+            },
+            "ja": {
+                "project_name": "File Server",
+                "project_description": null,
+                "project_content": null
+            }
+        }
+    },
+    {
+        "project_index": "web-meta-grabber",
+        "project_hero": "https://file.swayechateau.com/view/globalMaJKf2UDzFdqba7hG96U6?share_code=s6LHjQlIsFHc",
+        "project_git_url": "https://github.com/swayechateau/web-meta-grabber",
+        "project_demo_url": "https://meta.swayechateau.com",
+        "project_open_source": 1,
+        "tags": [
+            "lumen",
+            "php"
+        ],
+        "translations": {
+            "en-gb": {
+                "project_name": "Web Meta Grabber",
+                "project_description": null,
+                "project_content": null
+            },
+            "fr-fr": {
+                "project_name": "Web Meta Grabber",
+                "project_description": null,
+                "project_content": null
+            },
+            "ja": {
+                "project_name": "Web Meta Grabber",
+                "project_description": null,
+                "project_content": null
+            }
+        }
+    },
+    {
+        "project_index": "portfolio",
+        "project_hero": "https://swayechateau.com/media/image/projects/Portfolio-HomePage.jpg",
+        "project_git_url": null,
+        "project_demo_url": "https://hustle4musclegymwear.com/",
+        "project_open_source": 0,
+        "tags": [
+            "wordpress",
+            "tailwindcss",
+            "web"
+        ],
+        "translations": {
+            "en-gb": {
+                "project_name": "Hustle 4 Muscle",
+                "project_description": "Wordpress E-Commerce Theme",
+                "project_content": {
+                    "time": 1653461055220,
+                    "blocks": [
+                        {
+                            "id": "gXJgs4neDn",
+                            "type": "paragraph",
+                            "data": {
+                                "text": "You are currently looking at this project, made using Vue.js for the frontend, Laravel (PHP) for the backend and postgres for the database."
+                            }
+                        }
+                    ],
+                    "version": "2.23.2"
+                }
+            },
+            "fr-fr": {
+                "project_name": "Portefeuille",
+                "project_description": "Vous le regardez!",
+                "project_content": null
+            },
+            "ja": {
+                "project_name": "\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa",
+                "project_description": "\u3042\u306a\u305f\u306f\u305d\u308c\u3092\u898b\u3066\u3044\u307e\u3059\uff01",
+                "project_content": null
+            }
+        }
+    },
+    {
+        "project_index": "portfolio",
+        "project_hero": "https://swayechateau.com/media/image/projects/Portfolio-HomePage.jpg",
+        "project_git_url": null,
+        "project_demo_url": "https://swayechateau.com",
+        "project_open_source": 0,
+        "tags": [
+            "laravel",
+            "vue",
+            "web"
+        ],
+        "translations": {
+            "en-gb": {
+                "project_name": "Portfolio",
+                "project_description": "You are currently looking at it :p",
+                "project_content": {
+                    "time": 1653461055220,
+                    "blocks": [
+                        {
+                            "id": "gXJgs4neDn",
+                            "type": "paragraph",
+                            "data": {
+                                "text": "You are currently looking at this project, made using Vue.js for the frontend, Laravel (PHP) for the backend and postgres for the database."
+                            }
+                        }
+                    ],
+                    "version": "2.23.2"
+                }
+            },
+            "fr-fr": {
+                "project_name": "Portefeuille",
+                "project_description": "Vous le regardez!",
+                "project_content": null
+            },
+            "ja": {
+                "project_name": "\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa",
+                "project_description": "\u3042\u306a\u305f\u306f\u305d\u308c\u3092\u898b\u3066\u3044\u307e\u3059\uff01",
+                "project_content": null
+            }
+        }
+    }
+]

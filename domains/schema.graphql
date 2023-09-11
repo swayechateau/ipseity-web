@@ -1,0 +1,842 @@
+type Task {
+  id: ID!
+  title: String! @search(by: [fulltext])
+  completed: Boolean! @search
+  user: User!
+}
+
+type User {
+  username: String! @id @search(by: [hash])
+  name: String @search(by: [exact])
+  tasks: [Task] @hasInverse(field: user)
+}
+
+type Language {
+  id: ID!
+  languageCode: String! @search(by: [hash])
+  languageName: String! @search(by: [fulltext])
+  languageNativeName: String! @search(by: [fulltext])
+  meta: [Meta] @hasInverse(field: language)
+  contents: [Content] @hasInverse(field: language)
+  posts: [Post] @hasInverse(field: language)
+  projects: [Project] @hasInverse(field: language)
+  words: [Word] @hasInverse(field: language)
+}
+
+type Meta {
+  id: ID!
+  metaTitle: String @search(by: [fulltext])
+  metaDescription: String @search(by: [fulltext])
+  metaKeywords: String @search(by: [fulltext])
+  language: Language! @hasInverse(field: meta)
+  posts: [Post] @hasInverse(field: meta)
+  projects: [Project] @hasInverse(field: meta)
+  pages: [Page] @hasInverse(field: meta)
+}
+
+type Page {
+  id: ID!
+  published: Boolean! @search
+  uriIndex: String @search(by: [hash])
+  postedAt: DateTime @search
+  deletedAt: DateTime @search
+  createdAt: DateTime @search
+  updatedAt: DateTime @search
+  parent: Page @hasInverse(field: pages)
+  meta: [Meta] @hasInverse(field: pages)
+  contents: [Content] @hasInverse(field: pages)
+}
+
+type Post {
+  id: ID!
+  uriIndex: String! @search(by: [hash])
+  hasAside: Boolean! @search
+  createdAt: DateTime! @search
+  updatedAt: DateTime! @search
+  publishedAt: DateTime @search
+  isPublished: Boolean! @search
+  mainCategory: Word @hasInverse(field: posts)
+  meta: [Meta] @hasInverse(field: posts)
+  contents: [Content] @hasInverse(field: posts)
+  categories: [Word] @hasInverse(field: posts)
+  featuredPosts: [FeaturedPost] @hasInverse(field: post)
+  projects: [Project] @hasInverse(field: caseStudy)
+}
+
+type Project {
+  id: ID!
+  uriIndex: String! @search(by: [hash])
+  mainCategory: Word @hasInverse(field: projects)
+  githubLink: String @search(by: [hash])
+  liveLink: String @search(by: [hash])
+  openSource: Boolean! @search
+  meta: [Meta] @hasInverse(field: projects)
+  contents: [Content] @hasInverse(field: projects)
+  categories: [Word] @hasInverse(field: projectCategories)
+  caseStudy: Post @hasInverse(field: projects)
+}
+
+type Word {
+  id: ID!
+  englishWord: String! @search(by: [fulltext])
+  isCategory: Boolean! @search
+  summary: String @search(by: [fulltext])
+  translations: [WordTranslation] @hasInverse(field: word)
+  posts: [Post] @hasInverse(field: mainCategory)
+  projects: [Project] @hasInverse(field: mainCategory)
+  categories: [Post] @hasInverse(field: categories)
+  projectCategories: [Project] @hasInverse(field: categories)
+  languages: [Language] @hasInverse(field: words)
+}
+
+type WordTranslation {
+  word: Word! @hasInverse(field: translations)
+  language: Language! @hasInverse(field: translations)
+}
+
+type SocialLink {
+  siteName: String! @search(by: [hash])
+  siteLink: String! @search(by: [hash])
+  siteIcon: String! @search(by: [hash])
+}
+
+type Setting {
+  id: ID!
+  appId: String! @search(by: [hash])
+  siteName: String! @search(by: [hash])
+  url: String! @search(by: [hash])
+  email: String! @search(by: [hash])
+  location: String! @search(by: [hash])
+  defaultLang: String! @search(by: [hash])
+  founded: Int @search
+  createdAt: DateTime @search
+  updatedAt: DateTime @search
+}
+
+type Meta {
+  id: ID!
+  metaTitle: String @search(by: [fulltext])
+  metaDescription: String @search(by: [fulltext])
+  metaKeywords: String @search(by: [fulltext])
+  language: Language! @hasInverse(field: meta)
+  posts: [Post] @hasInverse(field: meta)
+  projects: [Project] @hasInverse(field: meta)
+  pages: [Page] @hasInverse(field: meta)
+}
+
+type Content {
+  id: ID!
+  title: String! @search(by: [fulltext])
+  subTitle: String @search(by: [fulltext])
+  contentData: EditorJS! @search
+  contentDescription: String @search(by: [fulltext])
+  heroImage: String @search(by: [hash])
+  language: Language! @hasInverse(field: content)
+  posts: [Post] @hasInverse(field: contents)
+  projects: [Project] @hasInverse(field: contents)
+  pages: [Page] @hasInverse(field: contents)
+}
+
+type FeaturedPost {
+  postOrder: Int! @search
+  post: Post! @hasInverse(field: featuredPosts)
+}
+
+type PostMeta {
+  post: Post! @hasInverse(field: meta)
+  meta: Meta! @hasInverse(field: posts)
+}
+
+type PostContent {
+  post: Post! @hasInverse(field: contents)
+  content: Content! @hasInverse(field: posts)
+}
+
+type PostCategory {
+  post: Post! @hasInverse(field: categories)
+  category: Word! @hasInverse(field: posts)
+}
+
+type ProjectMeta {
+  project: Project! @hasInverse(field: meta)
+  meta: Meta! @hasInverse(field: projects)
+}
+
+type ProjectContent {
+  project: Project! @hasInverse(field: contents)
+  content: Content! @hasInverse(field: projects)
+}
+
+type ProjectCategory {
+  project: Project! @hasInverse(field: categories)
+  category: Word! @hasInverse(field: projectCategories)
+}
+
+type EditorJS {
+  time: Int!
+  blocks: [Block]!
+  version: String!
+}
+
+type Block {
+  type: String!
+  data: BlockData
+}
+
+type BlockData {
+  text: String
+  level: Int
+  style: String
+  items: [String]
+  file: File
+  caption: String
+  withBorder: Boolean
+  stretched: Boolean
+  withBackground: Boolean
+  service: String
+  source: String
+  embed: String
+  width: Int
+  height: Int
+  poster: String
+  loop: Boolean
+  autoplay: Boolean
+  controls: Boolean
+}
+
+type File {
+  url: String!
+  ext: String!
+  mime: String!
+  size: Int!
+}
+
+
+type Query {
+  allTasks: [Task!]!
+  allUsers: [User!]!
+  allPages: [Page!]!
+  allPosts: [Post!]!
+  allProjects: [Project!]!
+  allLanguages: [Language!]!
+  allWords: [Word!]!
+  allSocialLinks: [SocialLink!]!
+  allSettings: [Setting!]!
+  allMetas: [Meta!]!
+  allContents: [Content!]!
+  allFeaturedPosts: [FeaturedPost!]!
+  allPostMetas: [PostMeta!]!
+  allPostContents: [PostContent!]!
+  allPostCategories: [PostCategory!]!
+  allProjectMetas: [ProjectMeta!]!
+  allProjectContents: [ProjectContent!]!
+  allProjectCategories: [ProjectCategory!]!
+}
+
+type Mutation {
+  createTask(title: String!, completed: Boolean!, user: UserRef!): Task!
+  createUser(username: String!, name: String): User!
+  createPage(parentId: ID, published: Boolean!, uriIndex: String, postedAt: DateTime, deletedAt: DateTime, createdAt: DateTime, updatedAt: DateTime, parent: PageRef, meta: [MetaRef], contents: [ContentRef]): Page!
+  createPost(uriIndex: String!, hasAside: Boolean!, createdAt: DateTime!, updatedAt: DateTime!, publishedAt: DateTime, isPublished: Boolean!, mainCategory: WordRef!, meta: [MetaRef], contents: [ContentRef], categories: [WordRef], featuredPosts: [FeaturedPostRef], projects: [ProjectRef]): Post!
+  createProject(uriIndex: String!, mainCategory: WordRef!, githubLink: String, liveLink: String, openSource: Boolean!, meta: [MetaRef], contents: [ContentRef], categories: [WordRef], caseStudy: PostRef): Project!
+  createLanguage(languageCode: String!, languageName: String!, languageNativeName: String!, meta: [MetaRef], contents: [ContentRef], posts: [PostRef], projects: [ProjectRef], words: [WordRef]): Language!
+  createWord(englishWord: String!, isCategory: Boolean!, summary: String, translations: [WordTranslationRef], posts: [PostRef], projects: [ProjectRef], categories: [PostRef], projectCategories: [ProjectRef], languages: [LanguageRef]): Word!
+  createSocialLink(siteName: String!, siteLink: String!, siteIcon: String!): SocialLink!
+  createSetting(appId: String!, siteName: String!, url: String!, email: String!, location: String!, defaultLang: String!, founded: Int, createdAt: DateTime, updatedAt: DateTime): Setting!
+  createMeta(metaTitle: String, metaDescription: String, metaKeywords: String, language: LanguageRef!, posts: [PostRef], projects: [ProjectRef], pages: [PageRef]): Meta!
+  createContent(title: String!, subTitle: String, contentData: EditorJS!, contentDescription: String, heroImage: String, language: LanguageRef!, posts: [PostRef], projects: [ProjectRef], pages: [PageRef]): Content!
+  createFeaturedPost(postOrder: Int!, post: PostRef! ): FeaturedPost!
+  createPostMeta(post: PostRef!, meta: MetaRef!): PostMeta!
+  createPostContent(post: PostRef!, content: ContentRef!): PostContent!
+  createPostCategory(post: PostRef!, category: WordRef!): PostCategory!
+  createProjectMeta(project: ProjectRef!, meta: MetaRef!): ProjectMeta!
+  createProjectContent(project: ProjectRef!, content: ContentRef!): ProjectContent!
+  createProjectCategory(project: ProjectRef!, category: WordRef!): ProjectCategory!
+  updateTask(id: ID!, title: String, completed: Boolean, user: UserRef): Task!
+  updateUser(username: String!, name: String): User!
+  updatePage(id: ID!, parentId: ID, published: Boolean, uriIndex: String, postedAt: DateTime, deletedAt: DateTime, createdAt: DateTime, updatedAt: DateTime, parent: PageRef, meta: [MetaRef], contents: [ContentRef]): Page!
+  updatePost(id: ID!, uriIndex: String, hasAside: Boolean, createdAt: DateTime, updatedAt: DateTime, publishedAt: DateTime, isPublished: Boolean, mainCategory: WordRef, meta: [MetaRef], contents: [ContentRef], categories: [WordRef], featuredPosts: [FeaturedPostRef], projects: [ProjectRef]): Post!
+  updateProject(id: ID!, uriIndex: String, mainCategory: WordRef, githubLink: String, liveLink: String, openSource: Boolean, meta: [MetaRef], contents: [ContentRef], categories: [WordRef], caseStudy: PostRef): Project!
+  updateLanguage(id: ID!, languageCode: String, languageName: String, languageNativeName: String, meta: [MetaRef], contents: [ContentRef], posts: [PostRef], projects: [ProjectRef], words: [WordRef]): Language!
+  updateWord(id: ID!, englishWord: String, isCategory: Boolean, summary: String, translations: [WordTranslationRef], posts: [PostRef], projects: [ProjectRef], categories: [PostRef], projectCategories: [ProjectRef], languages: [LanguageRef]): Word!
+  updateSocialLink(siteName: String!, siteLink: String!, siteIcon: String!): SocialLink!
+  updateSetting(id: ID!, appId: String, siteName: String, url: String, email: String, location: String, defaultLang: String, founded: Int, createdAt: DateTime, updatedAt: DateTime): Setting!
+  updateMeta(id: ID!, metaTitle: String, metaDescription: String, metaKeywords: String, language: LanguageRef, posts: [PostRef], projects: [ProjectRef], pages: [PageRef]): Meta!
+  updateContent(id: ID!, title: String, subTitle: String, contentData: EditorJS, contentDescription: String, heroImage: String, language: LanguageRef, posts: [PostRef], projects: [ProjectRef], pages: [PageRef]): Content!
+  updateFeaturedPost(postOrder: Int, post: PostRef ): FeaturedPost!
+  updatePostMeta(post: PostRef!, meta: MetaRef!): PostMeta!
+  updatePostContent(post: PostRef!, content: ContentRef!): PostContent!
+  updatePostCategory(post: PostRef!, category: WordRef!): PostCategory!
+  updateProjectMeta(project: ProjectRef!, meta: MetaRef!): ProjectMeta!
+  updateProjectContent(project: ProjectRef!, content: ContentRef!): ProjectContent!
+  updateProjectCategory(project: ProjectRef!, category: WordRef!): ProjectCategory!
+  deleteTask(id: ID!): Task
+  deleteUser(username: String!): User
+  deletePage(id: ID!): Page
+  deletePost(id: ID!): Post
+  deleteProject(id: ID!): Project
+  deleteLanguage(id: ID!): Language
+  deleteWord(id: ID!): Word
+  deleteSocialLink(siteName: String!): SocialLink
+  deleteSetting(id: ID!): Setting
+  deleteMeta(id: ID!): Meta
+  deleteContent(id: ID!): Content
+  deleteFeaturedPost(postId: ID!): FeaturedPost
+  deletePostMeta(postId: ID!, metaId: ID!): PostMeta
+  deletePostContent(postId: ID!, contentId: ID!): PostContent
+  deletePostCategory(postId: ID!, categoryId: ID!): PostCategory
+  deleteProjectMeta(projectId: ID!, metaId: ID!): ProjectMeta
+  deleteProjectContent(projectId: ID!, contentId: ID!): ProjectContent
+  deleteProjectCategory(projectId: ID!, categoryId: ID!): ProjectCategory
+}
+
+type Subscription {
+  task: TaskSubscriptionPayload!
+  user: UserSubscriptionPayload!
+  page: PageSubscriptionPayload!
+  post: PostSubscriptionPayload!
+  project: ProjectSubscriptionPayload!
+  language: LanguageSubscriptionPayload!
+  word: WordSubscriptionPayload!
+  socialLink: SocialLinkSubscriptionPayload!
+  setting: SettingSubscriptionPayload!
+  meta: MetaSubscriptionPayload!
+  content: ContentSubscriptionPayload!
+  featuredPost: FeaturedPostSubscriptionPayload!
+  postMeta: PostMetaSubscriptionPayload!
+  postContent: PostContentSubscriptionPayload!
+  postCategory: PostCategorySubscriptionPayload!
+  projectMeta: ProjectMetaSubscriptionPayload!
+  projectContent: ProjectContentSubscriptionPayload!
+  projectCategory: ProjectCategorySubscriptionPayload!
+}
+
+type TaskSubscriptionPayload {
+  mutation: MutationType!
+  node: Task
+  previousValues: TaskPreviousValues
+}
+
+type TaskPreviousValues {
+  id: ID!
+  title: String!
+  completed: Boolean!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  previousValues: UserPreviousValues
+}
+
+type UserPreviousValues {
+  username: String!
+  name: String
+}
+
+type PageSubscriptionPayload {
+  mutation: MutationType!
+  node: Page
+  previousValues: PagePreviousValues
+}
+
+type PagePreviousValues {
+  id: ID!
+  parentId: ID
+  published: Boolean!
+  uriIndex: String
+  postedAt: DateTime
+  deletedAt: DateTime
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  previousValues: PostPreviousValues
+}
+
+type PostPreviousValues {
+  id: ID!
+  uriIndex: String!
+  hasAside: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  publishedAt: DateTime
+  isPublished: Boolean!
+}
+
+type ProjectSubscriptionPayload {
+  mutation: MutationType!
+  node: Project
+  previousValues: ProjectPreviousValues
+}
+
+type ProjectPreviousValues {
+  id: ID!
+  uriIndex: String!
+  mainCategory: WordRef!
+  githubLink: String
+  liveLink: String
+  openSource: Boolean!
+}
+
+type LanguageSubscriptionPayload {
+  mutation: MutationType!
+  node: Language
+  previousValues: LanguagePreviousValues
+}
+
+type LanguagePreviousValues {
+  id: ID!
+  languageCode: String!
+  languageName: String!
+  languageNativeName: String!
+}
+
+type WordSubscriptionPayload {
+  mutation: MutationType!
+  node: Word
+  previousValues: WordPreviousValues
+}
+
+type WordPreviousValues {
+  id: ID!
+  englishWord: String!
+  isCategory: Boolean!
+  summary: String
+}
+
+type SocialLinkSubscriptionPayload {
+  mutation: MutationType!
+  node: SocialLink
+  previousValues: SocialLinkPreviousValues
+}
+
+type SocialLinkPreviousValues {
+  siteName: String!
+  siteLink: String!
+  siteIcon: String!
+}
+
+type SettingSubscriptionPayload {
+  mutation: MutationType!
+  node: Setting
+  previousValues: SettingPreviousValues
+}
+
+type SettingPreviousValues {
+  id: ID!
+  appId: String!
+  siteName: String!
+  url: String!
+  email: String!
+  location: String!
+  defaultLang: String!
+  founded: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type MetaSubscriptionPayload {
+  mutation: MutationType!
+  node: Meta
+  previousValues: MetaPreviousValues
+}
+
+type MetaPreviousValues {
+  id: ID!
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+}
+
+type ContentSubscriptionPayload {
+  mutation: MutationType!
+  node: Content
+  previousValues: ContentPreviousValues
+}
+
+type ContentPreviousValues {
+  id: ID!
+  title: String!
+  subTitle: String
+  contentDescription: String
+  heroImage: String
+}
+
+type FeaturedPostSubscriptionPayload {
+  mutation: MutationType!
+  node: FeaturedPost
+  previousValues: FeaturedPostPreviousValues
+}
+
+type FeaturedPostPreviousValues {
+  postId: ID!
+  postOrder: Int!
+}
+
+type PostMetaSubscriptionPayload {
+  mutation: MutationType!
+  node: PostMeta
+  previousValues: PostMetaPreviousValues
+}
+
+type PostMetaPreviousValues {
+  postId: ID!
+  metaId: ID!
+}
+
+type PostContentSubscriptionPayload {
+  mutation: MutationType!
+  node: PostContent
+  previousValues: PostContentPreviousValues
+}
+
+type PostContentPreviousValues {
+  postId: ID!
+  contentId: ID!
+}
+
+type PostCategorySubscriptionPayload {
+  mutation: MutationType!
+  node: PostCategory
+  previousValues: PostCategoryPreviousValues
+}
+
+type PostCategoryPreviousValues {
+  postId: ID!
+  categoryId: ID!
+}
+
+type ProjectMetaSubscriptionPayload {
+  mutation: MutationType!
+  node: ProjectMeta
+  previousValues: ProjectMetaPreviousValues
+}
+
+type ProjectMetaPreviousValues {
+  projectId: ID!
+  metaId: ID!
+}
+
+type ProjectContentSubscriptionPayload {
+  mutation: MutationType!
+  node: ProjectContent
+  previousValues: ProjectContentPreviousValues
+}
+
+type ProjectContentPreviousValues {
+  projectId: ID!
+  contentId: ID!
+}
+
+type ProjectCategorySubscriptionPayload {
+  mutation: MutationType!
+  node: ProjectCategory
+  previousValues: ProjectCategoryPreviousValues
+}
+
+type ProjectCategoryPreviousValues {
+  projectId: ID!
+  categoryId: ID!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+input TaskRef {
+  id: ID!
+}
+
+input UserRef {
+  username: String!
+}
+
+input PageRef {
+  id: ID!
+}
+
+input PostRef {
+  id: ID!
+}
+
+input ProjectRef {
+  id: ID!
+}
+
+input LanguageRef {
+  id: ID!
+}
+
+input WordRef {
+  id: ID!
+}
+
+input SocialLinkRef {
+  siteName: String!
+}
+
+input SettingRef {
+  id: ID!
+}
+
+input MetaRef {
+  id: ID!
+}
+
+input ContentRef {
+  id: ID!
+}
+
+input FeaturedPostRef {
+  postId: ID!
+}
+
+input PostMetaRef {
+  postId: ID!
+  metaId: ID!
+}
+
+input PostContentRef {
+  postId: ID!
+  contentId: ID!
+}
+
+input PostCategoryRef {
+  postId: ID!
+  categoryId: ID!
+}
+
+input ProjectMetaRef {
+  projectId: ID!
+  metaId: ID!
+}
+
+input ProjectContentRef {
+  projectId: ID!
+  contentId: ID!
+}
+
+input ProjectCategoryRef {
+  projectId: ID!
+  categoryId: ID!
+}
+
+input TaskFilter {
+  AND: [TaskFilter!]
+  OR: [TaskFilter!]
+  id: IDFilter
+  title: StringFilter
+  completed: BooleanFilter
+  user: UserFilter
+}
+
+input UserFilter {
+  AND: [UserFilter!]
+  OR: [UserFilter!]
+  username: StringFilter
+  name: StringFilter
+  tasks: TaskFilter
+}
+
+input PageFilter {
+  AND: [PageFilter!]
+  OR: [PageFilter!]
+  id: IDFilter
+  parentId: IDFilter
+  published: BooleanFilter
+  uriIndex: StringFilter
+  postedAt: DateTimeFilter
+  deletedAt: DateTimeFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  parent: PageFilter
+  meta: MetaFilter
+  contents: ContentFilter
+}
+
+input PostFilter {
+  AND: [PostFilter!]
+  OR: [PostFilter!]
+  id: IDFilter
+  uriIndex: StringFilter
+  hasAside: BooleanFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  publishedAt: DateTimeFilter
+  isPublished: BooleanFilter
+  mainCategory: WordFilter
+  meta: MetaFilter
+  contents: ContentFilter
+  categories: WordFilter
+  featuredPosts: FeaturedPostFilter
+  projects: ProjectFilter
+}
+
+input ProjectFilter {
+  AND: [ProjectFilter!]
+  OR: [ProjectFilter!]
+  id: IDFilter
+  uriIndex: StringFilter
+  mainCategory: WordFilter
+  githubLink: StringFilter
+  liveLink: StringFilter
+  openSource: BooleanFilter
+  meta: MetaFilter
+  contents: ContentFilter
+  categories: WordFilter
+  caseStudy: PostFilter
+}
+
+input LanguageFilter {
+  AND: [LanguageFilter!]
+  OR: [LanguageFilter!]
+  id: IDFilter
+  languageCode: StringFilter
+  languageName: StringFilter
+  languageNativeName: StringFilter
+  meta: MetaFilter
+  contents: ContentFilter
+  posts: PostFilter
+  projects: ProjectFilter
+  words: WordFilter
+}
+
+input WordFilter {
+  AND: [WordFilter!]
+  OR: [WordFilter!]
+  id: IDFilter
+  englishWord: StringFilter
+  isCategory: BooleanFilter
+  summary: StringFilter
+  translations: WordTranslationFilter
+  posts: PostFilter
+  projects: ProjectFilter
+  categories: PostFilter
+  projectCategories: ProjectFilter
+  languages: LanguageFilter
+}
+
+input SocialLinkFilter {
+  AND: [SocialLinkFilter!]
+  OR: [SocialLinkFilter!]
+  siteName: StringFilter
+  siteLink: StringFilter
+  siteIcon: StringFilter
+}
+
+input SettingFilter {
+  AND: [SettingFilter!]
+  OR: [SettingFilter!]
+  id: IDFilter
+  appId: StringFilter
+  siteName: StringFilter
+  url: StringFilter
+  email: StringFilter
+  location: StringFilter
+  defaultLang: StringFilter
+  founded: IntFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input MetaFilter {
+  AND: [MetaFilter!]
+  OR: [MetaFilter!]
+  id: IDFilter
+  metaTitle: StringFilter
+  metaDescription: StringFilter
+  metaKeywords: StringFilter
+  language: LanguageFilter
+  posts: PostFilter
+  projects: ProjectFilter
+  pages: PageFilter
+}
+
+input ContentFilter {
+  AND: [ContentFilter!]
+  OR: [ContentFilter!]
+  id: IDFilter
+  title: StringFilter
+  subTitle: StringFilter
+  contentDescription: StringFilter
+  heroImage: StringFilter
+  language: LanguageFilter
+  posts: PostFilter
+  projects: ProjectFilter
+  pages: PageFilter
+}
+
+input FeaturedPostFilter {
+  AND: [FeaturedPostFilter!]
+  OR: [FeaturedPostFilter!]
+  postId: IDFilter
+  postOrder: IntFilter
+  post: PostFilter
+}
+
+input PostMetaFilter {
+  AND: [PostMetaFilter!]
+  OR: [PostMetaFilter!]
+  postId: IDFilter
+  metaId: IDFilter
+  post: PostFilter
+  meta: MetaFilter
+}
+
+input PostContentFilter {
+  AND: [PostContentFilter!]
+  OR: [PostContentFilter!]
+  postId: IDFilter
+  contentId: IDFilter
+  post: PostFilter
+  content: ContentFilter
+}
+
+input PostCategoryFilter {
+  AND: [PostCategoryFilter!]
+  OR: [PostCategoryFilter!]
+  postId: IDFilter
+  categoryId: IDFilter
+  post: PostFilter
+  category: WordFilter
+}
+
+input ProjectMetaFilter {
+  AND: [ProjectMetaFilter!]
+  OR: [ProjectMetaFilter!]
+  projectId: IDFilter
+  metaId: IDFilter
+  project: ProjectFilter
+  meta: MetaFilter
+}
+
+input ProjectContentFilter {
+  AND: [ProjectContentFilter!]
+  OR: [ProjectContentFilter!]
+  projectId: IDFilter
+  contentId: IDFilter
+  project: ProjectFilter
+  content: ContentFilter
+}
+
+input ProjectCategoryFilter {
+  AND: [ProjectCategoryFilter!]
+  OR: [ProjectCategoryFilter!]
+  projectId: IDFilter
+  categoryId: IDFilter
+  project: ProjectFilter
+  category: WordFilter
+}
+
+input TaskOrderByInput {
+  id: OrderByArg
+  title: OrderByArg
+  completed: OrderByArg
+}
+

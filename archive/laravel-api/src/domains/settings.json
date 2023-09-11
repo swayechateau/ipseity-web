@@ -1,0 +1,49 @@
+{
+  "app_id" : "swaye-website",
+  "site_name" :  "Swaye Chateau",
+  "url" : "https://swayechateau.com",
+  "email" : "swaye@lechateaux.com",
+  "location" : "England, United Kingdom",
+  "default_lang" : "en-gb",
+  "supported_langs" : [
+      "en-gb", "fr-fr", 
+      "ja", "de-de", 
+      "zh-cn", "cy",
+      "ko-kr", "es-es"
+  ],
+  "social_links" : [
+      {
+          "href" : "https://github.com/swayechateau",
+          "icon" : "fab fa-github"
+      },
+      {
+          "href" : "https://github.com/swayechateau",
+          "icon" : "fab fa-mastodon"
+      },
+      {
+          "href" : "https://twitter.com/SwayeChateau",
+          "icon" : "mdi-twitter"
+      },
+      {
+          "href" : "https://www.instagram.com/swayechateau",
+          "icon" : "mdi-instagram"
+      },
+      {
+          "href" : "https://www.facebook.com/swaye.chateau",
+          "icon" : "mdi-facebook"
+      },
+      {
+          "href" : "https://www.reddit.com/user/swayec",
+          "icon" : "mdi-reddit"
+      },
+      {
+          "href" : "https://www.pinterest.co.uk/swayec/",
+          "icon" : "mdi-pinterest"
+      },
+      {
+          "href" : "https://mercylessreap.com",
+          "icon" : "fas fa-gamepad"
+      }
+    ],
+  "founded" : 2019
+}

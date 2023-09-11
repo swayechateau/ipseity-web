@@ -1,0 +1,21 @@
+#!/bin/bash
+chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+n=43
+str=
+
+echo "Generating app key"
+for ((i = 0; i < n; ++i)); do
+    str+=${chars:RANDOM%${#chars}:1}
+done
+
+key="base64:${str}="
+echo ${key}
+
+echo "Replacing old key"
+
+if [ $(./scripts/checkos) == "Mac" ]
+then
+    sed -i "" "s/^APP_KEY=.*/APP_KEY=${key}/" ${PWD}/.env
+else
+    sed -i "s/^APP_KEY=.*/APP_KEY=${key}/" ${PWD}/.env
+fi
