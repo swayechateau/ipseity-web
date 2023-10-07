@@ -22,6 +22,8 @@ COPY --from=build-stage /ipseity-web /ipseity-web
 
 WORKDIR /
 
+COPY ./templates ./templates
+
 # Expose the port your Go application is listening on
 EXPOSE 8080
 
