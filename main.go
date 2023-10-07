@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
 var templates = template.Must(template.ParseFiles("templates/index.html"))
@@ -44,6 +46,8 @@ func main() {
 
 	http.HandleFunc("/", indexHandler)
 
+	http.HandleFunc("/api", apiHandler)
+
 	fs := http.FileServer(http.Dir("templates/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
@@ -53,4 +57,14 @@ func main() {
 
 	log.Printf("Server started on port 8080")
 
+}
+
+func apiHandler(w http.ResponseWriter, r *http.Request) {
+	log.Printf("API Handler")
+	url := os.Getenv("API_URL")
+	if url == "" {
+		fmt.Fprintf(w, "API_URL not set")
+	}
+
+	fmt.Fprintf(w, "API_URL: %s", url)
 }
