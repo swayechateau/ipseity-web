@@ -1,6 +1,5 @@
 .DS_Store
 .github
 .elixir_ls
-documentation
-
+do_not_push
 .env

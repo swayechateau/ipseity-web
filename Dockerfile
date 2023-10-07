@@ -1,36 +1,31 @@
-# Use an official Elixir runtime as a parent image
-FROM elixir:latest
+# Use the official Go image as the base image
+FROM golang:latest AS build-stage
 
-# Set environment variables for Phoenix
-ENV MIX_ENV=prod
-
-# Install Hex and rebar for managing Elixir dependencies
-RUN mix local.hex --force && \
-    mix local.rebar --force
-
-# Install Node.js (required for Phoenix asset compilation)
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs
-
-# Install inotify-tools for filesystem monitoring (optional but recommended for development)
-RUN apt-get install -y inotify-tools
-
-# Create a directory for your Phoenix app
-RUN mkdir /app
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy and install dependencies (mix.exs and mix.lock)
-COPY mix.exs mix.lock ./
-RUN mix do deps.get, deps.compile
+COPY go.mod go.sum ./
+RUN go mod download
 
-# Copy the rest of your application code
+# Copy the rest of the application code to the container
 COPY . .
 
-# Build your Phoenix application
-RUN mix do compile, phx.digest
+# Build the Go application
+RUN CGO_ENABLED=0 GOOS=linux go build -o /ipseity-web
 
-# Expose the Phoenix port
-EXPOSE 4000
+# Run the tests in the container
+FROM build-stage AS run-test-stage
+RUN go test -v ./...
 
-# Start your Phoenix application
-CMD ["mix", "phx.server"]
+FROM alpine:latest AS build-release-stage
+
+COPY --from=build-stage /ipseity-web /ipseity-web
+
+WORKDIR /
+
+# Expose the port your Go application is listening on
+EXPOSE 8080
+
+USER 1000:1000
+
+ENTRYPOINT ["/ipseity-web"]
