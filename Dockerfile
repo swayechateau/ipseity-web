@@ -4,11 +4,11 @@ FROM golang:latest AS build-stage
 # Set the working directory inside the container
 WORKDIR /app
 
-COPY go.mod go.sum ./
-RUN go mod download
-
+# COPY go.mod go.sum ./
 # Copy the rest of the application code to the container
 COPY . .
+
+RUN go mod download
 
 # Build the Go application
 RUN CGO_ENABLED=0 GOOS=linux go build -o /ipseity-web
