@@ -1,1 +1,0 @@
-docker-compose exec lumen-portfolio-api "${@:1}"

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{.Lang}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{if .Meta.Title}}
+    <title>{{.Meta.Title}}</title>
+    {{else}}
+    <title>Document</title>
+    {{end}}
+    {{if .Meta.Description}}
+    <meta name="description" content="{{.Meta.Description}}">
+    {{end}}
+    {{if .Meta.Keywords}}
+    <meta name="keywords" content="{{.Meta.Keywords}}">
+    {{end}}
+</head>
+<body>
+    <h1>{{.Title}}</h1>
+</body>
+</html>

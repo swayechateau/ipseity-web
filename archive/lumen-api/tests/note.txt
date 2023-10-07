@@ -1,3 +1,0 @@
-unit tests are slowing production so skipping until project is a release candiate version 1
-
-yes I can skip, it is my project :p
