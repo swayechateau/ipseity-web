@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-var templates = template.Must(template.ParseFiles("templates/index.html"))
+var templates = template.Must(template.ParseFiles("./templates/index.html"))
 
 type PageData struct {
 	Lang  string
@@ -48,7 +48,7 @@ func main() {
 
 	http.HandleFunc("/api", apiHandler)
 
-	fs := http.FileServer(http.Dir("templates/static"))
+	fs := http.FileServer(http.Dir("./templates/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	if err := http.ListenAndServe(":8080", nil); err != nil {

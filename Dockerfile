@@ -4,7 +4,6 @@ FROM golang:latest AS build-stage
 # Set the working directory inside the container
 WORKDIR /app
 
-# COPY go.mod go.sum ./
 # Copy the rest of the application code to the container
 COPY . .
 
