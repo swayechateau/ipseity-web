@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{.Lang}}" class="h-full w-full">
+<html lang="{{.Languages.Current}}" class="h-full w-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +14,11 @@
     {{if .Meta.Title}}
     <title>{{.Meta.Title}}</title>
     {{else}}
-    <title>Document</title>
+    <title>Portfolio</title>
     {{end}}
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex flex-col h-full w-full">
+<body class="flex flex-col h-full w-full" style="background-color: #111;">
     <!-- Navigation -->
     <nav id="navigation"
         class="fixed bottom-0 md:top-0 md:h-16 md:bottom-auto md:py-0 backdrop-blur-sm z-50 max-h-40 w-full py-2 transition-all ease-in md:flex">
@@ -64,8 +64,6 @@
                     </a>
                 {{end}}
             {{end}}
-        
-
         </div>
 
         <div class="flex flex-col items-center justify-between text-xl md:flex-row">
@@ -79,7 +77,7 @@
             </div>
             <div id="copyright" class="p-2">
                 <p class="text-white">
-                    &copy; 2022
+                    &copy;{{.Founded}} - 2023
                     <a href="/" class="font-bold text-white hover:text-green-400">
                         <span> SC Portfolio</span>
                     </a>
