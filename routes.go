@@ -5,12 +5,28 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-
+	log.Printf("Index Handler")
 	data := pageDataTemplate()
+	data.Hero.Large = true
+	data.Hero.TitleGlow = true
 	data.Hero.Image = "https://swayechateau.com/media/image/deep-blue.jpg"
+	err := templates.ExecuteTemplate(w, "index.html", data)
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		log.Println("Template execution error:", err)
+	}
+
+}
+
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+	log.Printf("About Handler")
+	data := pageDataTemplate()
+	data.Hero.Image = "https://swayechateau.com/media/image/aboutme.png"
+	data.Hero.Title = "About Me"
 	err := templates.ExecuteTemplate(w, "index.html", data)
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
@@ -70,11 +86,49 @@ func pageDataTemplate() PageData {
 		Socials: Site.Socials,
 		UseHero: true,
 		Hero: &PageHero{
-			Large:     true,
-			TitleGlow: true,
+			Large:     false,
+			TitleGlow: false,
 			Title:     title,
 		},
 		Founded: &Site.YearFounded,
 		Routes:  routes,
 	}
+}
+
+func SiteHandler(w http.ResponseWriter, r *http.Request) {
+	path := r.URL.Path
+	parts := strings.Split(path, "/")
+	var page string
+	if len(parts) >= 3 {
+		page = parts[2]
+	}
+	log.Printf("Page: %s", page)
+	if page == "" {
+		// Default handler
+		indexHandler(w, r)
+	}
+
+	switch {
+	case page == "about":
+		aboutHandler(w, r)
+		return
+	// case page == "projects":
+	// 	projectsHandler(w, r)
+	// 	return
+	// case page == "blog":
+	// 	blogHandler(w, r)
+	// 	return
+	case page == "404":
+		NotFoundHandler(w, r)
+		return
+	default:
+		http.Redirect(w, r, "/"+parts[1]+"/404", http.StatusMovedPermanently)
+		return
+	}
+
+}
+
+func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusNotFound)
+	fmt.Fprint(w, "<h1>404 Not Found</h1><p>Sorry, the page you are looking for does not exist.</p>")
 }
