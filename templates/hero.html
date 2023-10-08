@@ -1,0 +1,30 @@
+<style>
+    .header-image {
+        background-image: url("{{.Image}}");
+    }
+</style>
+<header class="flex flex-col w-full bg-blue-400 bg-center bg-no-repeat bg-cover {{if .Large }} h-[80vh] {{ else }} h-[40vh] {{end}} min-h-[400px] backdrop-blur-sm header-image">
+<div class="flex items-center justify-center mt-20 grow">
+    <div
+        class="rounded-xl text-white text-center transition-all ease-in m-4 p-5 sm:p-10 backdrop-blur-sm shadow-[0_8px_32px_0_rgba(111,111,111,0.37)] bg-[rgba(0,0,0,0.25)] hover:scale-105">
+        {{ if .Title}}
+        <h1 class="mb-1 text-4xl font-extrabold {{if .TitleGlow }} animate-glow {{end}}">{{ .Title }}</h1>
+        {{end}}
+        {{if .Subtitle}}
+        <h2 class="py-2 text-2xl">
+            {{ .Subtitle }}
+            {{if .GlowText}}
+            <span id="who" class="animate-glow">{{ .GlowText }}</span>
+            {{end}}
+        </h2>
+        {{end}}
+        {{if not .Subtitle}}
+        <h2 class="py-2 text-2xl">
+            I am
+            <span id="who" class="animate-glow"> Under Development!</span>
+        </h2>
+        {{end}}
+    </div>
+</div>
+<div class="w-full h-32 bg-fade-bottom"></div>
+</header>

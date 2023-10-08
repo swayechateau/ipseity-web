@@ -1,90 +1,174 @@
 <!DOCTYPE html>
 <html lang="{{.Languages.Current}}" class="h-full w-full">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{if .Meta.Description}}
-    <meta name="description" content="{{.Meta.Description}}">
-    <meta name="og:description" content="{{.Meta.Description}}">
-    {{end}}
-    {{if .Meta.Keywords}}
-    <meta name="keywords" content="{{.Meta.Keywords}}">
-    {{end}}
-
-    {{if .Meta.Title}}
+    <meta name="description" content="{{.Meta.Description}}" />
+    <meta name="og:description" content="{{.Meta.Description}}" />
+    {{end}} {{if .Meta.Keywords}}
+    <meta name="keywords" content="{{.Meta.Keywords}}" />
+    {{end}} {{if .Meta.Title}}
     <title>{{.Meta.Title}}</title>
     {{else}}
     <title>Portfolio</title>
     {{end}}
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="flex flex-col h-full w-full" style="background-color: #111;">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundImage: {
+              "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+              "gradient-conic":
+                "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+              "fade-bottom":
+                "linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111)",
+              "fade-top":
+                "linear-gradient(360deg, transparent, rgba(37, 37, 37, 0.21), #111)",
+              main: "linear-gradient(104deg, rgba(131,58,180,0.5) 0%, rgba(253,29,29,0.5) 50%, rgba(252,176,69,0.5) 100%)",
+            },
+            animation: {
+              glow: "glow 4s infinite",
+              blink: "blink 1s infinite",
+              gradient: "gradient 15s ease infinite",
+              para: "para 50s linear infinite",
+            },
+            keyframes: {
+              blink: {
+                "from, to": {
+                  color: "transparent",
+                },
+                "50%": {
+                  color: "inherit",
+                },
+              },
+              glow: {
+                "0%": {
+                  "text-shadow": "0 0 10px inherit",
+                },
+                "15%": {
+                  "text-shadow":
+                    "2px 2px 10px rgba(0, 255, 0, 1), -2px -2px 10px rgba(0, 255, 0, 1)",
+                },
+                "30%": {
+                  "text-shadow":
+                    "2px 2px 4px rgba(0, 255, 0, .7), -2px -2px 4px rgba(0, 255, 0, .7)",
+                },
+                "50%": {
+                  "text-shadow":
+                    "20px 20px 50px rgba(255, 255, 255, .5), -20px -20px 50px rgba(255, 255, 255, .5)",
+                },
+              },
+              gradient: {
+                "0%": {
+                  "background-position": "0% 50%",
+                },
+                "50%": {
+                  "background-position": "100% 50%",
+                },
+                "100%": {
+                  "background-position": "0% 50%",
+                },
+              },
+              para: {
+                "100%": {
+                  "background-position":
+                    "-5000px 20%, -800px 95%, 500px 50%, 1000px 100%, 400px 0",
+                },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="flex flex-col h-full w-full" style="background-color: #111">
     <!-- Navigation -->
-    <nav id="navigation"
-        class="fixed bottom-0 md:top-0 md:h-16 md:bottom-auto md:py-0 backdrop-blur-sm z-50 max-h-40 w-full py-2 transition-all ease-in md:flex">
-        <div class="hidden md:flex items-center justify-center">
-            <h1 class="mx-3 my-2">
-                <span class="text-3xl font-bold text-green-500">S</span>
-                <span class="text-3xl font-bold text-yellow-500">C</span>
-            </h1>
-        </div>
-        <div class="flex items-center justify-evenly text-white md:grow md:justify-center md:space-x-3">
-            <!-- Loop Through: Routes -->
-            {{if .Routes}}
-                {{ range .Routes }}
-                <a href="{{.Link}}" class="flex flex-col items-center justify-center md:p-1 md:transition-all md:ease-in hover:text-green-400">
-                    <svg class="md:hidden text-2xl" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                        <path fill="currentColor"
-                            d="{{.Icon}}">
-                        </path>
-                    </svg>
-                    <span className="text-sm md:text-2xl capitalize">
-                        {{.Name}}
-                    </span>
-                </a>
-                {{end}}
-            {{end}}
-        </div>
+    <nav
+      id="navigation"
+      class="fixed bottom-0 md:top-0 md:h-16 md:bottom-auto md:py-0 backdrop-blur-sm z-50 max-h-40 w-full py-2 transition-all ease-in md:flex"
+    >
+      <div class="hidden md:flex items-center justify-center">
+        <h1 class="mx-3 my-2">
+          <span class="text-3xl font-bold text-green-500">S</span>
+          <span class="text-3xl font-bold text-yellow-500">C</span>
+        </h1>
+      </div>
+      <div
+        class="flex items-center justify-evenly text-white md:grow md:justify-center md:space-x-3"
+      >
+        <!-- Loop Through: Routes -->
+        {{if .Routes}} {{ range .Routes }}
+        <a
+          href="{{.Link}}"
+          class="flex flex-col items-center justify-center md:p-1 md:transition-all md:ease-in hover:text-green-400"
+        >
+          <svg
+            class="md:hidden text-2xl"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+          >
+            <path fill="currentColor" d="{{.Icon}}"></path>
+          </svg>
+          <span className="text-sm md:text-2xl capitalize"> {{.Name}} </span>
+        </a>
+        {{end}} {{end}}
+      </div>
     </nav>
     <!-- Main -->
     <main class="grow">
-        {{ .Title }}
+      {{if .UseHero}}
+      <!-- Page Hero -->
+      {{template "hero.html" .Hero}} {{end}}
     </main>
     <!-- Footer -->
-    <footer class="flex flex-col justify-between px-5 pt-10 pb-32 md:px-20 md:pb-10">
-        <div id="socials" class="mx-auto space-x-3">
-            <!-- Loop Through -->
-            {{if .Socials}}
-                {{range .Socials}}
-                    <a href="{{.Link}}" class="inline-block text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">{{.Name}}</span>
-                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="{{.Icon}}" clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                {{end}}
-            {{end}}
-        </div>
+    <footer
+      class="flex flex-col justify-between px-5 pt-10 pb-32 md:px-20 md:pb-10"
+    >
+      <div id="socials" class="mx-auto space-x-3">
+        <!-- Loop Through -->
+        {{if .Socials}} {{range .Socials}}
+        <a
+          href="{{.Link}}"
+          class="inline-block text-gray-400 hover:text-gray-500"
+        >
+          <span class="sr-only">{{.Name}}</span>
+          <svg
+            class="h-8 w-8"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path fill-rule="evenodd" d="{{.Icon}}" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+        {{end}} {{end}}
+      </div>
 
-        <div class="flex flex-col items-center justify-between text-xl md:flex-row">
-            <div id="copyright" class="p-2">
-                <p class="text-white">
-                    Made with <span class="text-red-500">❤</span> by
-                    <a href="https://blog.swayechateau.com" class="text-white hover:text-green-400 font-bold">
-                        <span>Swaye Chateau</span>
-                    </a>
-                </p>
-            </div>
-            <div id="copyright" class="p-2">
-                <p class="text-white">
-                    &copy;{{.Founded}} - 2023
-                    <a href="/" class="font-bold text-white hover:text-green-400">
-                        <span> SC Portfolio</span>
-                    </a>
-                    . All rights reserved.
-                </p>
-            </div>
+      <div
+        class="flex flex-col items-center justify-between text-xl md:flex-row"
+      >
+        <div id="copyright" class="p-2">
+          <p class="text-white">
+            Made with <span class="text-red-500">❤</span> by
+            <a href="/about" class="text-white hover:text-green-400 font-bold">
+              <span>Swaye Chateau</span>
+            </a>
+          </p>
         </div>
+        <div id="copyright" class="p-2">
+          <p class="text-white">
+            &copy;{{.Founded}} - 2023
+            <a href="/" class="font-bold text-white hover:text-green-400">
+              <span> SC Portfolio</span>
+            </a>
+            . All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
