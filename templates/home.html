@@ -1,0 +1,129 @@
+{{template "layout.html" .}}
+{{define "content"}}
+{{if .UseHero}}
+<!-- Page Hero -->
+{{template "hero.html" .Hero}} {{end}}
+<!-- Projects -->
+<section id="projects" class="relative z-10 pb-8">
+  <div
+    class="mx-3 -mt-32 rounded-2xl bg-[rgba(0,0,0,.5)] p-8 text-gray-200 backdrop-blur-sm md:mx-10"
+  >
+    <div class="text-center">
+      <h1 class="text-3xl font-semibold text-gray-100 md:text-6xl">
+        Featured Projects
+      </h1>
+      <p class="my-4 text-xl">
+        Here are some of the projects I have worked on.
+      </p>
+    </div>
+    <!-- Project Showcase -->
+    <div
+      id="projects-showcase"
+      class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3"
+    >
+    {{if .Projects}} {{range .Projects}}
+    <!-- Page Featured Projects -->
+    {{template "project-card.html" .}} 
+    {{end}} {{end}}
+    </div>
+  </div>
+</section>
+<!-- About -->
+<section id="about" class="relative bg-cover">
+  <canvas
+    id="about-matrix"
+    class="absolute w-full h-full bg-cover -z-10">
+  </canvas>
+  <div class="bg-fade-top h-32"></div>
+  <div
+    class="flex flex-wrap items-center h-auto py-32 md:mx-20 xl:justify-center"
+  >
+    <div class="flex w-full p-10 rounded-lg xl:w-4/5">
+      <!-- About Me Summary -->
+      <div
+        class="flex flex-col xl:rounded-l p-4 shadow-2xl backdrop-blur-sm bg-[rgba(0,0,0,0.15)] text-center xl:w-4/5 xl:p-12 xl:text-left"
+      >
+        <div class="grow">
+          <div
+            class="block w-48 h-48 mx-auto -mt-16 bg-center bg-cover rounded-full shadow-xl xl:hidden"
+            style="
+              background-image: url('https://yt3.ggpht.com/GojMrcrTTQDEx221wqyX_iIlLdmamrD6LQDwOY9Anv25sh2BgUiZ-LCVAQ4SPohIInh_O_i3zkY=s900-c-k-c0x00ffffff-no-rj');
+            "
+          ></div>
+          <h1 class="pt-8 text-3xl font-bold text-white xl:pt-0">
+            Swaye Chateau
+          </h1>
+          <div
+            class="pt-3 mx-auto border-b-2 border-green-500 xl:mx-0"
+          ></div>
+          <p class="pt-4 text-xl font-bold text-white">
+            Software Developer, Photographer and Vlogger
+          </p>
+          <p class="pt-2 text-base text-gray-400">
+            Based in the United Kingdom
+          </p>
+          <div>
+            <p class="pt-4 text-white text-md">
+              Currently working with blochchains in the digital identity
+              space using Verifiable Credentials and Self-Soverign
+              Identity in a decentralised enviroment.
+            </p>
+          </div>
+        </div>
+        <!-- Action Buttons -->
+        <div class="py-8 text-lg">
+          <a
+            href="https://cv.swayechateau.com"
+            class="inline-block px-4 py-2 m-1 text-white uppercase bg-green-700 rounded-lg cursor-pointer hover:bg-green-900"
+          >
+            View CV
+          </a>
+          <a
+            href="{{.Languages.Current}}/about"
+            class="inline-block px-4 py-2 m-1 text-white uppercase bg-green-700 rounded-lg cursor-pointer hover:bg-green-900"
+          >
+            More About Me
+          </a>
+        </div>
+      </div>
+      <!-- About Me Full Profile Picture -->
+      <div
+        class="xl:w-2/6 bg-cover bg-center"
+        style="
+          background-image: url('https://file.swayechateau.com/view/swayechateaudZ9YM8r3Rx8ubLAN8nzn29');
+        "
+      ></div>
+    </div>
+  </div>
+</section>
+
+<!-- Posts -->
+<section class="flex items-center justify-center text-gray-300">
+  <div class="container px-5 py-24">
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl font-semibold text-gray-100 md:text-6xl">
+        Recent Posts
+      </h1>
+      <a
+        href="{{.Languages.Current}}/posts"
+        rel="noopener noreferrer"
+      >
+        <div
+          class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg"
+        >
+          See More Posts
+        </div>
+      </a>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      <!-- <PostCard
+        v-for="post in posts"
+        :key="post.uri_index"
+        :slug="post.uri_index"
+        :published="post.published_at"
+        :translation="post.translations['en']"
+      /> -->
+    </div>
+  </div>
+</section>
+{{end}}

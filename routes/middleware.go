@@ -1,4 +1,4 @@
-package main
+package routes
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 func checkLang(l string) bool {
-	for _, lang := range Site.Languages.Available {
+	for _, lang := range Lang.Available {
 		if lang == l {
 			return true
 		}
@@ -32,12 +32,12 @@ func LanguageRedirectMiddleware(next http.Handler) http.Handler {
 
 		// If the language code is valid, pass the request to the next handler
 		if checkLang(lang) {
-			Lang = lang
+			Lang.Current = lang
 			next.ServeHTTP(w, r)
 			return
 		}
 		// If the language code is not present, redirect to the default language
-		redirectURL := "/" + Site.Languages.Default
+		redirectURL := "/" + Lang.Default
 		if path != "/" {
 			redirectURL = redirectURL + path
 		}

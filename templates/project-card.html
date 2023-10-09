@@ -1,0 +1,51 @@
+<div class="overflow-hidden rounded shadow-lg md:col-span-2 xl:col-span-1">
+  <img
+    class="responsive"
+    height="300"
+    src="{{.Content.HeroImage}}"
+    alt="{{.Content.Title}}"
+  />
+  <!-- Project Title and Excerpt -->
+  <div class="px-6 py-4">
+    <div class="mb-2 text-xl font-bold">{{ .Content.Title }}</div>
+    <p class="text-base text-gray-400">{{ .Content.Title }}</p>
+  </div>
+  <!-- Project Tags -->
+  <div class="px-6 pt-4 pb-2">
+    <span
+      class="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+    >
+      #{{ .Categories.Main }}
+    </span>
+    {{ range .Categories.Sub}}
+    <span
+      class="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+    >
+      #{{ . }}
+    </span>
+    {{ end }}
+  </div>
+  <!-- Project Action Buttons -->
+  <div class="pt-4 pb-2 text-center">
+    <a
+      href="{{.LiveLink }}"
+      target="_blank"
+      class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]"
+    >
+      View Demo
+    </a>
+    {{ if .OpenSource }}
+    <a
+      href="{{ .GitRepo }}"
+      target="_blank"
+      class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]"
+    >
+      View Code
+    </a>
+    {{ end }}
+    <!-- <a :to="project.case_study" target="_blank"
+            class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]">
+            View Case Study
+        </a> -->
+  </div>
+</div>
