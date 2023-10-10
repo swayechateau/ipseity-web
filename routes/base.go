@@ -2,6 +2,7 @@ package routes
 
 import (
 	"fmt"
+	"html/template"
 	"ipseity-web/components"
 	"log"
 	"net/http"
@@ -21,13 +22,20 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	data.Hero.TitleGlow = true
 	data.Hero.Image = "https://swayechateau.com/media/image/deep-blue.jpg"
 	data.Projects = &featuredProjects
+	// Render the template
 
-	content := components.GetTemplate("home")
-	err := content.Execute(w, data)
+	c := components.LoadPage("home")
+	err := c.Execute(w, data)
 	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		log.Println("Template execution error:", err)
+		InternalServerErrorHandler(w, r, err)
 	}
+	layoutTemplate := template.Must(template.ParseFiles("templates/layouts/layout.html"))
+	lerr := layoutTemplate.Execute(w, data)
+	if lerr != nil {
+		log.Println("Template execution error:", lerr)
+	}
+	// components.RenderTemplate(w, "home", data)
 }
 
 func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
@@ -45,12 +53,17 @@ func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 	data.Meta.Image = &image
 	data.Hero.TitleGlow = true
 	data.Hero.Image = image
-	content := components.GetTemplate("404")
-	err := content.Execute(w, data)
+	c := components.LoadPage("404")
+	err := c.Execute(w, data)
 	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		log.Println("Template execution error:", err)
+		InternalServerErrorHandler(w, r, err)
 	}
+}
+
+func InternalServerErrorHandler(w http.ResponseWriter, r *http.Request, err error) {
+	w.WriteHeader(http.StatusInternalServerError)
+	fmt.Fprintf(w, "Internal Server Error: Something went wrong! %s", err.Error())
 }
 
 // Remove Later

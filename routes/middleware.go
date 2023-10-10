@@ -36,13 +36,14 @@ func LanguageRedirectMiddleware(next http.Handler) http.Handler {
 			next.ServeHTTP(w, r)
 			return
 		}
+
 		// If the language code is not present, redirect to the default language
 		redirectURL := "/" + Lang.Default
 		if path != "/" {
 			redirectURL = redirectURL + path
 		}
-		http.Redirect(w, r, redirectURL, http.StatusMovedPermanently)
 
+		http.Redirect(w, r, redirectURL, http.StatusMovedPermanently)
 	})
 
 }
