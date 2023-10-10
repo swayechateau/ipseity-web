@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	// components.LoadTemplates()
 	http.HandleFunc("/api", routes.ApiHandler)
 	fs := http.FileServer(http.Dir("./templates/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))

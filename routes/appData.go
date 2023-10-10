@@ -47,6 +47,7 @@ type PageHero struct {
 	TitleGlow bool
 	Title     string
 	Subtitle  string
+	GlowText  string
 	Image     string
 }
 

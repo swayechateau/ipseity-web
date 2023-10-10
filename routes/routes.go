@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"ipseity-web/components"
 	"log"
 	"net/http"
 	"strings"
@@ -35,6 +36,14 @@ func SiteHandler(w http.ResponseWriter, r *http.Request) {
 	default:
 		http.Redirect(w, r, "/"+parts[1]+"/404", http.StatusNotFound)
 		return
+	}
+}
+
+func RenderPage(w http.ResponseWriter, page string, data interface{}) {
+	c := components.LoadPage(page)
+	err := c.Execute(w, data)
+	if err != nil {
+		log.Println("Template execution error:", err)
 	}
 }
 
