@@ -3,6 +3,7 @@ package routes
 import (
 	"ipseity-web/api"
 	"log"
+	"strings"
 )
 
 type PageLanguages struct {
@@ -105,10 +106,19 @@ func ConvertApiProjects(projects []api.Project) []ProjectData {
 }
 
 func ConvertApiProject(project api.Project) ProjectData {
+	baseImage := "/static/project-image.jpg"
 	translation := project.Translations[Lang.Current]
 	meta := translation.Meta
 	categories := translation.Categories
 	content := translation.Content
+	log.Printf("Hero Image: %v", content.HeroImage)
+
+	var image string = *content.HeroImage
+	log.Printf("Image: %v", image)
+	if isBlank(image) {
+		content.HeroImage = &baseImage
+	}
+
 	return ProjectData{
 		Index:      project.URIIndex,
 		GitHubLink: project.GitHubLink,
@@ -118,4 +128,8 @@ func ConvertApiProject(project api.Project) ProjectData {
 		Categories: *categories,
 		Content:    *content,
 	}
+}
+
+func isBlank(s string) bool {
+	return len(strings.TrimSpace(s)) == 0
 }
