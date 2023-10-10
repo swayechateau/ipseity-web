@@ -11,15 +11,18 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Index Handler")
 	log.Printf("Getting projects data")
 	pf := Api.Projects.Featured
+	psf := Api.Posts.Featured
 	log.Printf("Projects Retrieved: %d", len(pf))
 	log.Printf("Converting projects data")
 	featuredProjects := ConvertApiProjects(pf)
+	featuredPosts := ConvertApiPosts(psf)
 	log.Println(featuredProjects)
 	data := pageDataTemplate()
 	data.Hero.Large = true
 	data.Hero.TitleGlow = true
 	data.Hero.Image = "https://swayechateau.com/media/image/deep-blue.jpg"
 	data.Projects = &featuredProjects
+	data.Posts = &featuredPosts
 
 	RenderPage(w, "home", data)
 }

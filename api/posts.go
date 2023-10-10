@@ -7,9 +7,7 @@ import (
 
 type Post struct {
 	URIIndex     string                 `json:"uri_index"`
-	GitHubLink   string                 `json:"github_link"`
-	LiveLink     string                 `json:"live_link"`
-	OpenSource   bool                   `json:"open_source"`
+	PublishedAt  string                 `json:"published_at"`
 	Translations map[string]Translation `json:"translations"`
 }
 

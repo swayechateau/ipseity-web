@@ -33,6 +33,7 @@ type PageData struct {
 	UseHero   bool
 	Hero      *PageHero
 	Projects  *[]ProjectData
+	Posts     *[]PostData
 	Founded   *int
 	Routes    []Route
 }
@@ -57,6 +58,15 @@ type ProjectData struct {
 	GitHubLink string
 	LiveLink   string
 	OpenSource bool
+	Meta       api.Meta
+	Categories api.Category
+	Content    api.Content
+}
+
+type PostData struct {
+	Index      string
+	Link       string
+	Published  string
 	Meta       api.Meta
 	Categories api.Category
 	Content    api.Content
@@ -124,6 +134,31 @@ func ConvertApiProject(project api.Project) ProjectData {
 		GitHubLink: project.GitHubLink,
 		LiveLink:   project.LiveLink,
 		OpenSource: project.OpenSource,
+		Meta:       *meta,
+		Categories: *categories,
+		Content:    *content,
+	}
+}
+
+func ConvertApiPosts(posts []api.Post) []PostData {
+	var postsData []PostData
+	for _, post := range posts {
+		log.Printf("Project: %v", post)
+		postsData = append(postsData, ConvertApiPost(post))
+	}
+	return postsData
+}
+
+func ConvertApiPost(post api.Post) PostData {
+	translation := post.Translations[Lang.Current]
+	meta := translation.Meta
+	categories := translation.Categories
+	content := translation.Content
+	link := Lang.Current + "/blog/" + post.URIIndex
+	return PostData{
+		Index:      post.URIIndex,
+		Link:       link,
+		Published:  post.PublishedAt,
 		Meta:       *meta,
 		Categories: *categories,
 		Content:    *content,

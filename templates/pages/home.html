@@ -116,13 +116,10 @@
       </a>
     </div>
     <div class="flex flex-wrap -m-4">
-      <!-- <PostCard
-        v-for="post in posts"
-        :key="post.uri_index"
-        :slug="post.uri_index"
-        :published="post.published_at"
-        :translation="post.translations['en']"
-      /> -->
+      {{if .Posts}} {{range .Posts}}
+      <!-- Page Featured Posts -->
+      {{template "post-card.html" .}} 
+      {{end}} {{end}}
     </div>
   </div>
 </section>
