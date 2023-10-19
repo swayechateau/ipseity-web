@@ -45,11 +45,11 @@ func RenderPage(w http.ResponseWriter, page string, data interface{}) {
 }
 
 func pageDataTemplate() PageData {
-	title := Api.Site.Meta[Lang.Current].Title
-	description := Api.Site.Meta[Lang.Current].Description
-	keywords := Api.Site.Meta[Lang.Current].Keywords
+	title := state.Site.Meta[Lang.Current].Title
+	description := state.Site.Meta[Lang.Current].Description
+	keywords := state.Site.Meta[Lang.Current].Keywords
 
-	words := ConvertApiWords(Api.Words.All)
+	words := ConvertApiWords(state.Words.All)
 	log.Printf("Words: %v", words)
 
 	routes := []Route{
@@ -85,14 +85,14 @@ func pageDataTemplate() PageData {
 			Description: &description,
 			Keywords:    &keywords,
 		},
-		Socials: Api.Site.Socials,
+		Socials: state.Site.Socials,
 		UseHero: true,
 		Hero: &PageHero{
 			Large:     false,
 			TitleGlow: false,
 			Title:     title,
 		},
-		Founded: &Api.Site.YearFounded,
+		Founded: &state.Site.YearFounded,
 		Routes:  routes,
 		Words:   &words,
 	}

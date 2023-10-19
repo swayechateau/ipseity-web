@@ -10,8 +10,8 @@ import (
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Index Handler")
 	log.Printf("Getting projects data")
-	pf := Api.Projects.Featured
-	psf := Api.Posts.Featured
+	pf := state.Projects.Featured
+	psf := state.Posts.Featured
 	log.Printf("Projects Retrieved: %d", len(pf))
 	log.Printf("Converting projects data")
 	featuredProjects := ConvertApiProjects(pf)

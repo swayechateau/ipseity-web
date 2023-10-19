@@ -1,6 +1,7 @@
 package api
 
 import (
+	"log"
 	"sync"
 )
 
@@ -19,9 +20,41 @@ type ApiData struct {
 }
 
 func init() {
-	once.Do(func() {
-		UpdateApiData()
-	})
+	// check for chached data
+	log.Println("Loading data from cache...")
+	data, err := LoadData()
+	// if error, fetch data from api
+	if err != nil {
+		log.Println("Error loading data:", err)
+		UpdateCache()
+		return
+	}
+	// set data from cache
+	setData(data)
+	log.Println("Data loaded from cache.")
+
+}
+
+func UpdateCache() {
+	log.Println("Updating API Data...")
+	UpdateApiData()
+	log.Println("API Data Updated.")
+	log.Println("Caching data...")
+	if err := SaveDataFromAPI(); err != nil {
+		log.Println("Error saving data:", err)
+		return
+	}
+	log.Println("Data cached.")
+}
+
+func setData(data ApiData) {
+	mu.Lock()
+	defer mu.Unlock()
+	siteData = data.Site
+	wordsData = data.Words
+	projectsData = data.Projects
+	postsData = data.Posts
+	pagesData = data.Pages
 }
 
 func GetApiData() ApiData {

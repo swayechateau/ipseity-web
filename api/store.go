@@ -4,24 +4,12 @@ import (
 	"encoding/json"
 	"log"
 	"os"
-	"time"
 )
 
 // Define the path to the JSON file on the server.
 var filePath = "./data.json"
 
-func PollApi() {
-	// Poll the API and store the data in a JSON file on the server periodically.
-	ticker := time.NewTicker(1 * time.Hour) // Adjust the polling interval as needed.
-	for range ticker.C {
-		if err := FetchDataFromAPI(); err != nil {
-			log.Println("Error fetching data from API:", err)
-			continue
-		}
-	}
-}
-
-func FetchDataFromAPI() error {
+func SaveDataFromAPI() error {
 	// Make an HTTP GET request to the API.
 	apiData := GetApiData()
 

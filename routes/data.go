@@ -4,6 +4,7 @@ import (
 	"ipseity-web/api"
 	"log"
 	"strings"
+	"time"
 )
 
 type PageLanguages struct {
@@ -74,13 +75,12 @@ type PostData struct {
 	Content    api.Content
 }
 
-var Api = api.GetApiData()
+var state = api.GetApiData()
 var Lang = PageLanguages{
-	Current:   Api.Site.Languages.Default,
-	Default:   Api.Site.Languages.Default,
-	Available: Api.Site.Languages.Available,
+	Current:   state.Site.Languages.Default,
+	Default:   state.Site.Languages.Default,
+	Available: state.Site.Languages.Available,
 }
-
 var PageRoutes = PageNavigation{
 	Home: map[string]string{
 		"en": "Home",
@@ -106,6 +106,18 @@ var PageRoutes = PageNavigation{
 		"ja": "ブログ",
 		"zh": "博客",
 	},
+}
+
+func PollApi() {
+	updateInterval := 24 // Hours
+	// Poll the API and store the data in a JSON file on the server periodically.
+	// Convert updateInterval to time.Duration before multiplying.
+	ticker := time.NewTicker(time.Duration(updateInterval) * time.Hour)
+	for range ticker.C {
+		log.Println("Daily API Check...")
+		api.UpdateCache()
+		state = api.GetApiData()
+	}
 }
 
 func ConvertApiProjects(projects []api.Project) []ProjectData {
