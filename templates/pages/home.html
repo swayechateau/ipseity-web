@@ -10,7 +10,11 @@
   >
     <div class="text-center">
       <h1 class="text-3xl font-semibold text-gray-100 md:text-6xl">
+        {{if .Words}}
+        {{.Words.FeaturedProjects}}
+        {{else}}
         Featured Projects
+        {{end}}
       </h1>
       <p class="my-4 text-xl">
         Here are some of the projects I have worked on.
@@ -102,7 +106,11 @@
   <div class="container px-5 py-24">
     <div class="mb-12 text-center">
       <h1 class="text-4xl font-semibold text-gray-100 md:text-6xl">
+        {{if .Words}}
+        {{.Words.RecentPosts}}
+        {{else}}
         Recent Posts
+        {{end}}
       </h1>
       <a
         href="{{.Languages.Current}}/posts"

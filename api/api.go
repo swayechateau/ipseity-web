@@ -7,6 +7,7 @@ import (
 var (
 	once sync.Once
 	mu   sync.Mutex
+	url  = "https://api.swaye.dev"
 )
 
 type ApiData struct {

@@ -20,7 +20,7 @@ var postsData PostsData
 
 // FetchProjectsData fetches data from the given API and stores it in the global variable projectsData
 func FetchPostsData() error {
-	resp, err := http.Get("https://api.swaye.dev/posts")
+	resp, err := http.Get(url + "/posts")
 	if err != nil {
 		return err
 	}
@@ -38,7 +38,7 @@ func FetchPostsData() error {
 }
 
 func FetchFeaturedPostsData() error {
-	resp, err := http.Get("https://api.swaye.dev/posts?featured=true")
+	resp, err := http.Get(url + "/posts?featured=true")
 	if err != nil {
 		return err
 	}

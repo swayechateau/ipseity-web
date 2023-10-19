@@ -1,7 +1,6 @@
 <div class="overflow-hidden rounded shadow-lg md:col-span-2 xl:col-span-1">
   <img
-    class="responsive"
-    height="300"
+    class="w-full h-48 object-cover object-center"
     src="{{.Content.HeroImage}}"
     alt="{{.Content.Title}}"
   />
@@ -29,6 +28,7 @@
   <div class="pt-4 pb-2 text-center">
     <a
       href="{{.LiveLink }}"
+      title="View Demo"
       target="_blank"
       class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]"
     >
@@ -36,7 +36,7 @@
     </a>
     {{ if .OpenSource }}
     <a
-      href="{{ .GitRepo }}"
+      href="{{ .GitHubLink }}"
       target="_blank"
       class="m-1 inline-block cursor-pointer rounded bg-[rgba(255,255,255,0.1)] py-2 px-4 uppercase backdrop-blur hover:bg-[rgba(255,255,255,0.2)]"
     >

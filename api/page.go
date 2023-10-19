@@ -21,7 +21,7 @@ var pagesData PagesData
 
 // FetchProjectsData fetches data from the given API and stores it in the global variable projectsData
 func FetchPagesData() error {
-	resp, err := http.Get("https://api.swaye.dev/pages")
+	resp, err := http.Get(url + "/pages")
 	if err != nil {
 		return err
 	}

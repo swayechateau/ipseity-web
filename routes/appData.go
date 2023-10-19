@@ -36,6 +36,7 @@ type PageData struct {
 	Posts     *[]PostData
 	Founded   *int
 	Routes    []Route
+	Words     *map[string]string
 }
 
 type Route struct {
@@ -58,6 +59,7 @@ type ProjectData struct {
 	GitHubLink string
 	LiveLink   string
 	OpenSource bool
+	CaseStudy  *string
 	Meta       api.Meta
 	Categories api.Category
 	Content    api.Content
@@ -118,6 +120,7 @@ func ConvertApiProjects(projects []api.Project) []ProjectData {
 func ConvertApiProject(project api.Project) ProjectData {
 	baseImage := "/static/project-image.jpg"
 	translation := project.Translations[Lang.Current]
+	caseStudy := Lang.Current + "/blog" + project.CaseStudyIndex
 	meta := translation.Meta
 	categories := translation.Categories
 	content := translation.Content
@@ -133,6 +136,7 @@ func ConvertApiProject(project api.Project) ProjectData {
 		Index:      project.URIIndex,
 		GitHubLink: project.GitHubLink,
 		LiveLink:   project.LiveLink,
+		CaseStudy:  &caseStudy,
 		OpenSource: project.OpenSource,
 		Meta:       *meta,
 		Categories: *categories,
@@ -163,6 +167,18 @@ func ConvertApiPost(post api.Post) PostData {
 		Categories: *categories,
 		Content:    *content,
 	}
+}
+
+func ConvertApiWords(words map[string]api.Word) map[string]string {
+	wordsData := make(map[string]string)
+	for key, word := range words {
+		wordsData[key] = ConvertApiWord(word)
+	}
+	return wordsData
+}
+
+func ConvertApiWord(word api.Word) string {
+	return word.Translation[Lang.Current]
 }
 
 func isBlank(s string) bool {

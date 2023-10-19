@@ -18,10 +18,42 @@
     <script src="/static/js/tailwindcss.js"></script>
   </head>
   <body class="flex flex-col min-h-screen" style="background-color: #111">
+    <!-- Lang Picker -->
+    <div class="fixed top-0 right-0 z-50 p-2">
+      <div
+        class="dropdown relative group inline-block backdrop-blur-sm bg-slate-200"
+      >
+        <a href="#" class="dropdown-button inline-flex">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke-width="1.5" 
+            stroke="currentColor" 
+            class="w-6 h-6">
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"
+            />
+          </svg>
+          <span class="text-white"> {{.Languages.Current}} </span>
+        </a>
+        <div
+          class="dropdown-content hidden absolute top-full right-0 py-4 group-hover:block"
+        >
+          <a href="en">English</a>
+          <a href="fr">Français</a>
+          <a href="ja">日本語</a>
+          <a href="zh">中文</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Navigation -->
     <nav
       id="navigation"
-      class="fixed bottom-0 md:top-0 md:h-16 md:bottom-auto md:py-0 backdrop-blur-sm z-50 max-h-40 w-full py-2 transition-all ease-in md:flex"
+      class="fixed bottom-0 md:top-0 md:h-16 md:bottom-auto md:py-0 backdrop-blur-sm z-40 max-h-40 w-full py-2 transition-all ease-in md:flex shadow-0_8px_32px_0_rgba(31,38,135,0.37)"
     >
       <div class="hidden md:flex items-center justify-center">
         <h1 class="mx-3 my-2">
@@ -52,6 +84,34 @@
         {{end}} {{end}}
       </div>
     </nav>
+    <script>
+      const nav = document.getElementById("navigation");
+      const navStyle = {
+        scroll: "bg-main",
+        default: "bg-transparent",
+      };
+
+      // Function to watch Y-axis position and change classes
+      function watchYAxis() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY >= 60) {
+          // Add classes when Y-axis position is at 60 or more
+          nav.classList.add(navStyle.scroll);
+          nav.classList.remove(navStyle.default);
+        } else {
+          // Remove classes when Y-axis position is less than 60
+          nav.classList.remove(navStyle.scroll);
+          nav.classList.add(navStyle.default);
+        }
+      }
+
+      // function toggleNav() {
+      //   navigation.classList.toggle('bg-transparent');
+      //   navigation.classList.toggle('bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 shadow-0_8px_32px_0_rgba(31,38,135,0.37)');
+      // }
+      // Attach the function to the window's scroll event
+      window.addEventListener("scroll", watchYAxis);
+    </script>
     <!-- Main -->
     <main class="flex flex-col relative grow">
       {{block "content" .}} {{end}}
@@ -87,7 +147,10 @@
         <div id="copyright" class="p-2">
           <p class="text-white">
             Made with <span class="text-red-500">❤</span> by
-            <a href="{{.Languages.Current}}/about" class="text-white hover:text-green-400 font-bold">
+            <a
+              href="{{.Languages.Current}}/about"
+              class="text-white hover:text-green-400 font-bold"
+            >
               <span>Swaye Chateau</span>
             </a>
           </p>
@@ -95,7 +158,10 @@
         <div id="copyright" class="p-2">
           <p class="text-white">
             &copy;{{.Founded}} - 2023
-            <a href="/{{.Languages.Current}}" class="font-bold text-white hover:text-green-400">
+            <a
+              href="/{{.Languages.Current}}"
+              class="font-bold text-white hover:text-green-400"
+            >
               <span> SC Portfolio</span>
             </a>
             . All rights reserved.
@@ -103,5 +169,6 @@
         </div>
       </div>
     </footer>
+    <script src="/static/js/app.js"></script>
   </body>
 </html>

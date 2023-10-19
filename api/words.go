@@ -9,7 +9,7 @@ import (
 // SiteData represents the structure of the JSON data from the API
 type Word struct {
 	EnglishWord *string           `json:"english_word"`
-	Translation map[string]string `json:"translation"`
+	Translation map[string]string `json:"translations"`
 }
 
 type WordsData struct {
@@ -21,7 +21,7 @@ var wordsData WordsData
 
 // FetchSiteData fetches data from the given API and stores it in the global variable siteData
 func FetchWordData() error {
-	resp, err := http.Get("https://api.swaye.dev/words")
+	resp, err := http.Get(url + "/words")
 	if err != nil {
 		return err
 	}
@@ -36,7 +36,7 @@ func FetchWordData() error {
 }
 
 func FetchCategoriesData() error {
-	resp, err := http.Get("https://api.swaye.dev/words?categories=true")
+	resp, err := http.Get(url + "/words?categories=true")
 	if err != nil {
 		return err
 	}

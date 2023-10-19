@@ -38,7 +38,7 @@ var siteData SiteData
 
 // FetchSiteData fetches data from the given API and stores it in the global variable siteData
 func FetchSiteData() error {
-	resp, err := http.Get("https://api.swaye.dev/sites/ipseity-web")
+	resp, err := http.Get(url + "/sites/ipseity-web")
 	if err != nil {
 		return err
 	}

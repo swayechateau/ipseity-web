@@ -6,11 +6,12 @@ import (
 )
 
 type Project struct {
-	URIIndex     string                 `json:"uri_index"`
-	GitHubLink   string                 `json:"github_link"`
-	LiveLink     string                 `json:"live_link"`
-	OpenSource   bool                   `json:"open_source"`
-	Translations map[string]Translation `json:"translations"`
+	URIIndex       string                 `json:"uri_index"`
+	GitHubLink     string                 `json:"github_link"`
+	LiveLink       string                 `json:"live_link"`
+	OpenSource     bool                   `json:"open_source"`
+	CaseStudyIndex string                 `json:"case_study_index"`
+	Translations   map[string]Translation `json:"translations"`
 }
 
 type ProjectsData struct {
@@ -22,7 +23,7 @@ var projectsData ProjectsData
 
 // FetchProjectsData fetches data from the given API and stores it in the global variable projectsData
 func FetchProjectsData() error {
-	resp, err := http.Get("https://api.swaye.dev/projects")
+	resp, err := http.Get(url + "/projects")
 	if err != nil {
 		return err
 	}
@@ -40,7 +41,7 @@ func FetchProjectsData() error {
 }
 
 func FetchFeaturedProjectsData() error {
-	resp, err := http.Get("https://api.swaye.dev/projects?featured=true")
+	resp, err := http.Get(url + "/projects?featured=true")
 	if err != nil {
 		return err
 	}

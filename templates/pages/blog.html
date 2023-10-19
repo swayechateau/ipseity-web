@@ -1,5 +1,7 @@
 {{template "layout.html" .}}
-{{define "content"}} {{if .UseHero}}
+{{define "content"}} 
+<div class="md:pt-16"></div>
+{{if .UseHero}}
 <!-- Page Hero -->
 {{template "hero.html" .Hero}} {{end}} 
 <h1 class="text-lg text-white">Hello Blog</h1>
