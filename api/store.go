@@ -7,7 +7,7 @@ import (
 )
 
 // Define the path to the JSON file on the server.
-var filePath = "./data.json"
+var filePath = "./data/data.json"
 
 func SaveDataFromAPI() error {
 	// Make an HTTP GET request to the API.

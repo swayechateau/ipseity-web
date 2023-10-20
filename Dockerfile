@@ -18,9 +18,12 @@ RUN go test -v ./...
 
 FROM alpine:latest AS build-release-stage
 
-COPY --from=build-stage /ipseity-web /ipseity-web
+COPY --from=build-stage /ipseity-web /app/ipseity-web
 
-WORKDIR /
+RUN mkdir /app/templates && \
+    mkdir /app/data
+
+WORKDIR /app
 
 COPY ./templates ./templates
 
@@ -29,4 +32,4 @@ EXPOSE 8080
 
 USER 1000:1000
 
-ENTRYPOINT ["/ipseity-web"]
+ENTRYPOINT ["/app/ipseity-web"]
