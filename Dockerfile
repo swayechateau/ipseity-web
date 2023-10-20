@@ -24,8 +24,7 @@ COPY --from=build-stage /ipseity-web /app/ipseity-web
 
 RUN mkdir /app/templates && \
     mkdir /app/data \
-    chmod 777 /app/data \
-    chown -R 1000:1000 /app
+    chown -R 1000:1000 /app/data
 
 WORKDIR /app
 
