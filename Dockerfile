@@ -28,7 +28,7 @@ COPY --from=build-stage /ipseity-web /app/ipseity-web
 USER root
 RUN mkdir -p /app/data
 RUN chown -R 1000:1000 /app/data
-RUN chmod -R 777:777 /app/data
+# RUN chmod -R 777:777 /app/data
 
 # Set the working directory
 # USER 1000:1000
