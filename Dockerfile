@@ -18,11 +18,14 @@ RUN go test -v ./...
 
 FROM alpine:latest AS build-release-stage
 
+USER 1000:1000
+
 COPY --from=build-stage /ipseity-web /app/ipseity-web
 
 RUN mkdir /app/templates && \
-    mkdir /app/data && \
-    chmod 777 /app/data
+    mkdir /app/data \
+    chmod 777 /app/data \
+    chown -R 1000:1000 /app
 
 WORKDIR /app
 
@@ -31,6 +34,6 @@ COPY ./templates ./templates
 # Expose the port your Go application is listening on
 EXPOSE 8080
 
-USER 1000:1000
+
 
 ENTRYPOINT ["/app/ipseity-web"]
