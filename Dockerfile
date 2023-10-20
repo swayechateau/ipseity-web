@@ -21,7 +21,8 @@ FROM alpine:latest AS build-release-stage
 COPY --from=build-stage /ipseity-web /app/ipseity-web
 
 RUN mkdir /app/templates && \
-    mkdir /app/data
+    mkdir /app/data && \
+    chmod 777 /app/data
 
 WORKDIR /app
 
