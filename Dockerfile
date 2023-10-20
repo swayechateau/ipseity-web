@@ -22,8 +22,7 @@ USER 1000:1000
 
 COPY --from=build-stage /ipseity-web /app/ipseity-web
 
-RUN mkdir /app/templates && \
-    mkdir /app/data \
+RUN mkdir -p /app/data && \
     chown -R 1000:1000 /app/data
 
 WORKDIR /app
