@@ -26,11 +26,12 @@ COPY --from=build-stage /ipseity-web /app/ipseity-web
 
 # Create the /app/data directory and set permissions
 USER root
-RUN mkdir -p /app/data && \
-    chown -R 1000:1000 /app/data
+RUN mkdir -p /app/data
+RUN chown -R 1000:1000 /app/data
+RUN chmod -R 777:777 /app/data
 
 # Set the working directory
-USER 1000:1000
+# USER 1000:1000
 WORKDIR /app
 
 # Copy templates to the image
