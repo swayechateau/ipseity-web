@@ -8,8 +8,7 @@
   <div class="mx-3 -mt-32 rounded-2xl bg-[rgba(0,0,0,.5)] p-8 text-gray-200 backdrop-blur-sm md:mx-10">
     <div class="text-center">
       <h1 class="text-3xl font-semibold text-gray-100 md:text-6xl">
-        {{if .Words}}
-        {{.Words.FeaturedProjects}}
+        {{if .Words.FeaturedProjects}}
         {{else}}
         Featured Projects
         {{end}}
@@ -204,13 +203,12 @@
   <div class="container px-5 py-24">
     <div class="mb-12 text-center">
       <h1 class="text-4xl font-semibold text-gray-100 md:text-6xl">
-        {{if .Words}}
-        {{.Words.RecentPosts}}
+        {{if .Words.RecentPosts}}
         {{else}}
         Recent Posts
         {{end}}
       </h1>
-      <a href="{{.Languages.Current}}/posts" rel="noopener noreferrer">
+      <a href="{{.Languages.Current}}/blog" rel="noopener noreferrer">
         <div class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg">
           See More Posts
         </div>
@@ -223,5 +221,59 @@
       {{end}} {{end}}
     </div>
   </div>
+</section>
+
+<!-- Videos -->
+<section class="flex items-center justify-center text-gray-300">
+  <div class="container px-5 py-24">
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl font-semibold text-gray-100 md:text-6xl">
+        {{if .Words.RecentVideos}}
+        {{.Words.RecentVideos}}
+        {{else}}
+        Recent Videos
+        {{end}}
+      </h1>
+      <a href="https://www.youtube.com/channel/UCd1-cM1G-kwXGd0vUkUPk4g" rel="noopener noreferrer">
+        <div class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg">
+          See More Videos
+        </div>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 -m-4">
+      <iframe class="w-full rounded-lg h-80" loading="lazy" src="https://www.youtube.com/embed/Brvn7nAgZqA"
+        title="Quick pop to the shops" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""></iframe>
+      <iframe class="w-full rounded-lg h-80" loading="lazy" src="https://www.youtube.com/embed/AJ79HZ57mtc"
+        title="Ride To The Test Centre (UK Bike Module 1)" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""></iframe>
+      <iframe class="w-full rounded-lg h-80" loading="lazy" src="https://www.youtube.com/embed/lftJmGpNU14"
+        title="Module 1 Highlights" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""></iframe>
+    </div>
+</section>
+<!-- Contact -->
+<section class="flex items-center justify-center text-gray-300">
+  <div class="container px-5 py-24">
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl font-semibold text-gray-100 md:text-6xl">
+        {{if .Words.ContactMe}}
+        {{.Words.ContactMe}}
+        {{else}}
+        Contact Me
+        {{end}}
+      </h1>
+      <a href="https://www.linkedin.com/in/swayec" rel="noopener noreferrer">
+        <div class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg">
+          If you need to get in touch, connect with me on linkedin
+        </div>
+      </a>
+    </div>
+  </div>
+
+
 </section>
 {{end}}
