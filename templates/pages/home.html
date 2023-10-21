@@ -5,9 +5,7 @@
 {{template "hero.html" .Hero}} {{end}}
 <!-- Projects -->
 <section id="projects" class="relative z-10 pb-8">
-  <div
-    class="mx-3 -mt-32 rounded-2xl bg-[rgba(0,0,0,.5)] p-8 text-gray-200 backdrop-blur-sm md:mx-10"
-  >
+  <div class="mx-3 -mt-32 rounded-2xl bg-[rgba(0,0,0,.5)] p-8 text-gray-200 backdrop-blur-sm md:mx-10">
     <div class="text-center">
       <h1 class="text-3xl font-semibold text-gray-100 md:text-6xl">
         {{if .Words}}
@@ -21,45 +19,151 @@
       </p>
     </div>
     <!-- Project Showcase -->
-    <div
-      id="projects-showcase"
-      class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3"
-    >
-    {{if .Projects}} {{range .Projects}}
-    <!-- Page Featured Projects -->
-    {{template "project-card.html" .}} 
-    {{end}} {{end}}
+    <div id="projects-showcase" class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
+      {{if .Projects}} {{range .Projects}}
+      <!-- Page Featured Projects -->
+      {{template "project-card.html" .}}
+      {{end}} {{end}}
     </div>
   </div>
 </section>
 <!-- About -->
 <section id="about" class="relative bg-cover">
-  <canvas
-    id="about-matrix"
-    class="absolute w-full h-full bg-cover -z-10">
+  <canvas id="matrix" class="absolute w-full h-full bg-cover -z-10">
   </canvas>
+
+  <script>
+    class Symbol {
+      characters;
+      x;
+      y;
+      fontSize;
+      text;
+      canvasHeight;
+      constructor(x, y, fontSize, canvasHeight) {
+        this.characters =
+          "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        this.x = x;
+        this.y = y;
+        this.fontSize = fontSize;
+        this.text = "A";
+        this.canvasHeight = canvasHeight;
+        //this.color = 'hsl(' + this.x * 3+ ', 100%, 50%)';
+      }
+      draw(context) {
+        //context.font = this.fontSize + 'px monospace';
+        this.text = this.characters.charAt(
+          Math.floor(Math.random() * this.characters.length)
+        );
+        //context.fillStyle = this.color;
+        context.fillText(this.text, this.x * this.fontSize, this.y * this.fontSize);
+        if (this.y * this.fontSize > this.canvasHeight && Math.random() > 0.97) {
+          this.y = 0;
+        } else {
+          this.y += 0.9;
+        }
+      }
+    }
+
+    class Effect {
+      fontSize;
+      canvasWidth;
+      canvasHeight;
+      columns;
+      symbols;
+      constructor(canvasWidth, canvasHeight) {
+        this.fontSize = 16;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.columns = this.canvasWidth / this.fontSize;
+        this.symbols = [];
+        this.initialize();
+      }
+      initialize() {
+        for (let i = 0; i < this.columns; i++) {
+          this.symbols[i] = new Symbol(i, 0, this.fontSize, this.canvasHeight);
+        }
+      }
+      resize(width, height) {
+        this.canvasWidth = width;
+        this.canvasHeight = height;
+        this.columns = this.canvasWidth / this.fontSize;
+        this.symbols = [];
+        this.initialize();
+      }
+    }
+
+    class Matrix {
+      last = 0;
+      fps = 26;
+      timer = 0;
+      canvas;
+      ctx;
+      effect;
+      nextFrame;
+      constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = this.canvas.getContext("2d");
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.effect = new Effect(this.canvas.width, this.canvas.height);
+        this.nextFrame = 1000 / this.fps;
+        this.timer = 0;
+      }
+      width(w) {
+        this.canvas.width = w;
+      }
+      height(h) {
+        this.canvas.height = h;
+      }
+      resize() {
+        this.effect.resize(this.canvas.width, this.canvas.height);
+      }
+    }
+    const canvas = document.getElementById("matrix");
+
+    const matrix = new Matrix(canvas);
+
+    const animate = (time) => {
+      const deltaTime = time - matrix.last;
+      matrix.fps = time;
+      if (matrix.timer > matrix.nextFrame) {
+        matrix.ctx.textAlign = "center";
+        matrix.ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        matrix.ctx.fillRect(0, 0, matrix.canvas.width, matrix.canvas.height);
+        matrix.ctx.font = matrix.effect.fontSize + "px monospace";
+        matrix.ctx.fillStyle = "#03A062";
+        matrix.ctx.fillStyle = "#0aff0a";
+
+        matrix.effect.symbols.forEach((symbol) => symbol.draw(matrix.ctx));
+        matrix.timer = 0;
+      } else {
+        matrix.timer += deltaTime;
+      }
+      requestAnimationFrame(animate);
+    };
+
+    animate(0);
+    window.addEventListener("resize", function () {
+      matrix.width(window.innerWidth);
+      matrix.height(window.innerHeight);
+      matrix.resize();
+    });
+  </script>
   <div class="bg-fade-top h-32"></div>
-  <div
-    class="flex flex-wrap items-center h-auto py-32 md:mx-20 xl:justify-center"
-  >
+  <div class="flex flex-wrap items-center h-auto py-32 md:mx-20 xl:justify-center">
     <div class="flex w-full p-10 rounded-lg xl:w-4/5">
       <!-- About Me Summary -->
       <div
-        class="flex flex-col xl:rounded-l p-4 shadow-2xl backdrop-blur-sm bg-[rgba(0,0,0,0.15)] text-center xl:w-4/5 xl:p-12 xl:text-left"
-      >
+        class="flex flex-col xl:rounded-l p-4 shadow-2xl backdrop-blur-sm bg-[rgba(0,0,0,0.15)] text-center xl:w-4/5 xl:p-12 xl:text-left">
         <div class="grow">
-          <div
-            class="block w-48 h-48 mx-auto -mt-16 bg-center bg-cover rounded-full shadow-xl xl:hidden"
-            style="
+          <div class="block w-48 h-48 mx-auto -mt-16 bg-center bg-cover rounded-full shadow-xl xl:hidden" style="
               background-image: url('https://yt3.ggpht.com/GojMrcrTTQDEx221wqyX_iIlLdmamrD6LQDwOY9Anv25sh2BgUiZ-LCVAQ4SPohIInh_O_i3zkY=s900-c-k-c0x00ffffff-no-rj');
-            "
-          ></div>
+            "></div>
           <h1 class="pt-8 text-3xl font-bold text-white xl:pt-0">
             Swaye Chateau
           </h1>
-          <div
-            class="pt-3 mx-auto border-b-2 border-green-500 xl:mx-0"
-          ></div>
+          <div class="pt-3 mx-auto border-b-2 border-green-500 xl:mx-0"></div>
           <p class="pt-4 text-xl font-bold text-white">
             Software Developer, Photographer and Vlogger
           </p>
@@ -76,29 +180,23 @@
         </div>
         <!-- Action Buttons -->
         <div class="py-8 text-lg">
-          <a
-            href="https://cv.swayechateau.com"
-            class="inline-block px-4 py-2 m-1 text-white uppercase bg-green-700 rounded-lg cursor-pointer hover:bg-green-900"
-          >
+          <a href="https://cv.swayechateau.com"
+            class="inline-block px-4 py-2 m-1 text-white uppercase bg-green-700 rounded-lg cursor-pointer hover:bg-green-900">
             View CV
           </a>
-          <a
-            href="{{.Languages.Current}}/about"
-            class="inline-block px-4 py-2 m-1 text-white uppercase bg-green-700 rounded-lg cursor-pointer hover:bg-green-900"
-          >
+          <a href="{{.Languages.Current}}/about"
+            class="inline-block px-4 py-2 m-1 text-white uppercase bg-green-700 rounded-lg cursor-pointer hover:bg-green-900">
             More About Me
           </a>
         </div>
       </div>
       <!-- About Me Full Profile Picture -->
-      <div
-        class="xl:w-2/6 bg-cover bg-center"
-        style="
+      <div class="xl:w-2/6 bg-cover bg-center" style="
           background-image: url('https://file.swayechateau.com/view/swayechateaudZ9YM8r3Rx8ubLAN8nzn29');
-        "
-      ></div>
+        "></div>
     </div>
   </div>
+  <div class="bg-fade-bottom h-32"></div>
 </section>
 
 <!-- Posts -->
@@ -112,13 +210,8 @@
         Recent Posts
         {{end}}
       </h1>
-      <a
-        href="{{.Languages.Current}}/posts"
-        rel="noopener noreferrer"
-      >
-        <div
-          class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg"
-        >
+      <a href="{{.Languages.Current}}/posts" rel="noopener noreferrer">
+        <div class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg">
           See More Posts
         </div>
       </a>
@@ -126,7 +219,7 @@
     <div class="flex flex-wrap -m-4">
       {{if .Posts}} {{range .Posts}}
       <!-- Page Featured Posts -->
-      {{template "post-card.html" .}} 
+      {{template "post-card.html" .}}
       {{end}} {{end}}
     </div>
   </div>
