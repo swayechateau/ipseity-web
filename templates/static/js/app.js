@@ -1,25 +1,26 @@
-// Function to convert UTC datetime to relative time using Intl.RelativeTimeFormat
-function updateTime() {
-    const timeElements = document.querySelectorAll('time');
-    // const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+const nav = document.getElementById("navigation");
+const navStyle = {
+  scroll: "bg-main",
+  default: "bg-transparent",
+};
 
-    timeElements.forEach(timeElement => {
-        const datetime = timeElement.getAttribute('datetime');
-        const date = new Date(datetime);
-        timeElement.textContent = regionTime(date);
-    });
+// Function to watch Y-axis position and change classes
+function watchYAxis() {
+  var scrollY = window.scrollY || window.pageYOffset;
+  if (scrollY >= 60) {
+    // Add classes when Y-axis position is at 60 or more
+    nav.classList.add(navStyle.scroll);
+    nav.classList.remove(navStyle.default);
+  } else {
+    // Remove classes when Y-axis position is less than 60
+    nav.classList.remove(navStyle.scroll);
+    nav.classList.add(navStyle.default);
+  }
 }
 
-function regionTime(date) {
-    const lang = document.documentElement.lang
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/London';
-
-    return new Intl.DateTimeFormat(
-        [lang, 'en'], { dateStyle: 'medium', timeStyle: 'short', timeZone: timeZone }).format(date)
-}
-
-// Call the function to initially convert datetime to relative time
-updateTime();
-
-
-// setInterval(updateRelativeTime, 60000); // Update every minute
+// function toggleNav() {
+//   navigation.classList.toggle('bg-transparent');
+//   navigation.classList.toggle('bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 shadow-0_8px_32px_0_rgba(31,38,135,0.37)');
+// }
+// Attach the function to the window's scroll event
+window.addEventListener("scroll", watchYAxis);

@@ -1,141 +1,149 @@
 <!DOCTYPE html>
 <html lang="{{.Languages.Current}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    {{if .Meta.Description}}
+    <meta name="description" content="{{.Meta.Description}}" />
+    <meta name="og:description" content="{{.Meta.Description}}" />
+    {{end}} {{if .Meta.Keywords}}
+    <meta name="keywords" content="{{.Meta.Keywords}}" />
+    {{end}} {{if .Meta.Title}}
+    <title>{{.Meta.Title}}</title>
+    {{else}}
+    <title>Portfolio</title>
+    {{end}}
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/static/js/tailwindcss.js"></script>
+    <script defer src="/static/js/app.js"></script>
+    <script defer src="/static/js/time.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
-  {{if .Meta.Description}}
-  <meta name="description" content="{{.Meta.Description}}" />
-  <meta name="og:description" content="{{.Meta.Description}}" />
-  {{end}} {{if .Meta.Keywords}}
-  <meta name="keywords" content="{{.Meta.Keywords}}" />
-  {{end}} {{if .Meta.Title}}
-  <title>{{.Meta.Title}}</title>
-  {{else}}
-  <title>Portfolio</title>
-  {{end}}
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/static/js/tailwindcss.js"></script>
-</head>
-
-<body class="flex flex-col min-h-screen" style="background-color: #111">
-  <!-- Lang Picker -->
-  <div class="fixed top-0 right-0 z-50">
-    <div
-      class="w-full min-h-16 flex items-center bg-transparent transition-all duration-250 ease-in text-white overflow-x-auto z-50 p-4 group">
-      <button
-        class="text-white bg-transparent border-none font-bold p-2 inline-flex items-center rounded-md group-hover:text-green-400">
-        <span class="mr-2">
-          <svg width="24px" height="24px" viewBox="0 0 24 24">
-            <path fill="currentColor"
-              d="M12.87,15.07L10.33,12.56L10.36,12.53C12.1,10.59 13.34,8.36 14.07,6H17V4H10V2H8V4H1V6H12.17C11.5,7.92 10.44,9.75 9,11.35C8.07,10.32 7.3,9.19 6.69,8H4.69C5.42,9.63 6.42,11.17 7.67,12.56L2.58,17.58L4,19L9,14L12.11,17.11L12.87,15.07M18.5,10H16.5L12,22H14L15.12,19H19.87L21,22H23L18.5,10M15.88,17L17.5,12.67L19.12,17H15.88Z">
-            </path>
-          </svg>
-        </span>
-      </button>
-      <div class="relative inline-block">
-        <div class="right-0 mt-2 space-y-2 bg-white text-gray-400 hidden group-hover:flex flex-col">
-          <a class="px-4 py-2 hover:text-green-400" href="/fr">Français</a>
-          <a class="px-4 py-2 hover:text-green-400" href="/ja">日本語</a>
-          <a class="px-4 py-2 hover:text-green-400" href="/zh">中文</a>
-          <!-- <a class="px-4 py-2 hover:text-green-400" href="/cy">Cymraeg</a> -->
-          <!-- <a class="px-4 py-2 hover:text-green-400" href="/ko">한국인</a> -->
-          <a class="px-4 py-2 hover:text-green-400" href="/en">English</a>
+  <body class="flex flex-col min-h-screen" style="background-color: #111">
+    <!-- Lang Picker -->
+    <div class="fixed top-0 right-0 z-50">
+      <div
+        class="w-full min-h-16 flex items-center bg-transparent transition-all duration-250 ease-in text-white overflow-x-auto z-50 p-4 group"
+      >
+        <button
+          class="text-white bg-transparent border-none font-bold p-2 inline-flex items-center rounded-md group-hover:text-green-400"
+        >
+          <span class="mr-2">
+            <svg width="24px" height="24px" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M12.87,15.07L10.33,12.56L10.36,12.53C12.1,10.59 13.34,8.36 14.07,6H17V4H10V2H8V4H1V6H12.17C11.5,7.92 10.44,9.75 9,11.35C8.07,10.32 7.3,9.19 6.69,8H4.69C5.42,9.63 6.42,11.17 7.67,12.56L2.58,17.58L4,19L9,14L12.11,17.11L12.87,15.07M18.5,10H16.5L12,22H14L15.12,19H19.87L21,22H23L18.5,10M15.88,17L17.5,12.67L19.12,17H15.88Z"
+              ></path>
+            </svg>
+          </span>
+        </button>
+        <div class="relative inline-block">
+          <div
+            class="right-0 mt-2 space-y-2 bg-white text-gray-400 hidden group-hover:flex flex-col"
+          >
+            <a class="px-4 py-2 hover:text-green-400" href="/fr">Français</a>
+            <a class="px-4 py-2 hover:text-green-400" href="/ja">日本語</a>
+            <a class="px-4 py-2 hover:text-green-400" href="/zh">中文</a>
+            <!-- <a class="px-4 py-2 hover:text-green-400" href="/cy">Cymraeg</a> -->
+            <!-- <a class="px-4 py-2 hover:text-green-400" href="/ko">한국인</a> -->
+            <a class="px-4 py-2 hover:text-green-400" href="/en">English</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Navigation -->
-  <nav id="navigation"
-    class="fixed bottom-0 md:top-0 md:h-16 md:bottom-auto md:py-0 backdrop-blur-sm z-40 max-h-40 w-full py-2 transition-all ease-in md:flex shadow-0_8px_32px_0_rgba(31,38,135,0.37)">
-    <div class="hidden md:flex items-center justify-center">
-      <h1 class="mx-3 my-2">
-        <span class="text-3xl font-bold text-green-500">S</span>
-        <span class="text-3xl font-bold text-yellow-500">C</span>
-      </h1>
-    </div>
-    <div class="flex items-center justify-evenly text-white md:grow md:justify-center md:space-x-3">
-      <!-- Loop Through: Routes -->
-      {{if .Routes}} {{ range .Routes }}
-      <a href="{{.Link}}"
-        class="flex flex-col items-center justify-center md:p-1 md:transition-all md:ease-in hover:text-green-400">
-        <svg class="md:hidden text-2xl" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-          <path fill="currentColor" d="{{.Icon}}"></path>
-        </svg>
-        <span className="text-sm md:text-2xl capitalize"> {{.Name}} </span>
-      </a>
-      {{end}} {{end}}
-    </div>
-  </nav>
-  <script>
-    const nav = document.getElementById("navigation");
-    const navStyle = {
-      scroll: "bg-main",
-      default: "bg-transparent",
-    };
-
-    // Function to watch Y-axis position and change classes
-    function watchYAxis() {
-      var scrollY = window.scrollY || window.pageYOffset;
-      if (scrollY >= 60) {
-        // Add classes when Y-axis position is at 60 or more
-        nav.classList.add(navStyle.scroll);
-        nav.classList.remove(navStyle.default);
-      } else {
-        // Remove classes when Y-axis position is less than 60
-        nav.classList.remove(navStyle.scroll);
-        nav.classList.add(navStyle.default);
-      }
-    }
-
-    // function toggleNav() {
-    //   navigation.classList.toggle('bg-transparent');
-    //   navigation.classList.toggle('bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 shadow-0_8px_32px_0_rgba(31,38,135,0.37)');
-    // }
-    // Attach the function to the window's scroll event
-    window.addEventListener("scroll", watchYAxis);
-  </script>
-  <!-- Main -->
-  <main class="flex flex-col relative grow">
-    {{block "content" .}} {{end}}
-  </main>
-  <!-- Footer -->
-  <footer class="flex flex-col justify-between px-5 pt-10 pb-32 md:px-20 md:pb-10">
-    <div id="socials" class="mx-auto space-x-3">
-      <!-- Loop Through -->
-      {{if .Socials}} {{range .Socials}}
-      <a href="{{.Link}}" target="_blank" class="inline-block text-gray-400 hover:text-gray-500">
-        <span class="sr-only">{{.Name}}</span>
-        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd" d="{{.Icon}}" clip-rule="evenodd"></path>
-        </svg>
-      </a>
-      {{end}} {{end}}
-    </div>
-
-    <div class="flex flex-col items-center justify-between text-xl md:flex-row">
-      <div id="copyright" class="p-2">
-        <p class="text-white">
-          Made with <span class="text-red-500">❤</span> by
-          <a href="{{.Languages.Current}}/about" class="text-white hover:text-green-400 font-bold">
-            <span>Swaye Chateau</span>
-          </a>
-        </p>
+    <!-- Navigation -->
+    <nav
+      id="navigation"
+      class="fixed bottom-0 md:top-0 md:h-16 md:bottom-auto md:py-0 backdrop-blur-sm z-40 max-h-40 w-full py-2 transition-all ease-in md:flex shadow-0_8px_32px_0_rgba(31,38,135,0.37)"
+    >
+      <div class="hidden md:flex items-center justify-center">
+        <h1 class="mx-3 my-2">
+          <span class="text-3xl font-bold text-green-500">S</span>
+          <span class="text-3xl font-bold text-yellow-500">C</span>
+        </h1>
       </div>
-      <div id="copyright" class="p-2">
-        <p class="text-white">
-          &copy;{{.Founded}} - 2023
-          <a href="/{{.Languages.Current}}" class="font-bold text-white hover:text-green-400">
-            <span> SC Portfolio</span>
-          </a>
-          . All rights reserved.
-        </p>
+      <div
+        class="flex items-center justify-evenly text-white md:grow md:justify-center md:space-x-3"
+      >
+        <!-- Loop Through: Routes -->
+        {{if .Routes}} {{ range .Routes }}
+        <a
+          href="{{.Link}}"
+          class="flex flex-col items-center justify-center md:p-1 md:transition-all md:ease-in hover:text-green-400"
+        >
+          <svg
+            class="md:hidden text-2xl"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+          >
+            <path fill="currentColor" d="{{.Icon}}"></path>
+          </svg>
+          <span className="text-sm md:text-2xl capitalize"> {{.Name}} </span>
+        </a>
+        {{end}} {{end}}
       </div>
-    </div>
-  </footer>
-  <script src="/static/js/app.js"></script>
-</body>
+    </nav>
 
+    <!-- Main -->
+    <main class="flex flex-col relative grow">
+      {{block "content" .}} {{end}}
+    </main>
+    <!-- Footer -->
+    <footer
+      class="flex flex-col justify-between px-5 pt-10 pb-32 md:px-20 md:pb-10"
+    >
+      <div id="socials" class="mx-auto space-x-3">
+        <!-- Loop Through -->
+        {{if .Socials}} {{range .Socials}}
+        <a
+          href="{{.Link}}"
+          target="_blank"
+          class="inline-block text-gray-400 hover:text-gray-500"
+        >
+          <span class="sr-only">{{.Name}}</span>
+          <svg
+            class="h-8 w-8"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path fill-rule="evenodd" d="{{.Icon}}" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+        {{end}} {{end}}
+      </div>
+
+      <div
+        class="flex flex-col items-center justify-between text-xl md:flex-row"
+      >
+        <div id="copyright" class="p-2">
+          <p class="text-white">
+            Made with <span class="text-red-500">❤</span> by
+            <a
+              href="{{.Languages.Current}}/about"
+              class="text-white hover:text-green-400 font-bold"
+            >
+              <span>Swaye Chateau</span>
+            </a>
+          </p>
+        </div>
+        <div id="copyright" class="p-2">
+          <p class="text-white">
+            &copy;{{.Founded}} - 2023
+            <a
+              href="/{{.Languages.Current}}"
+              class="font-bold text-white hover:text-green-400"
+            >
+              <span> SC Portfolio</span>
+            </a>
+            . All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
