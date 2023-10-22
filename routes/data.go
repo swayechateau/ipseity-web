@@ -57,6 +57,7 @@ type PageHero struct {
 
 type ProjectData struct {
 	Index      string
+	Url        string
 	GitHubLink string
 	LiveLink   string
 	OpenSource bool
@@ -132,7 +133,8 @@ func ConvertApiProjects(projects []api.Project) []ProjectData {
 func ConvertApiProject(project api.Project) ProjectData {
 	baseImage := "/static/project-image.jpg"
 	translation := project.Translations[Lang.Current]
-	caseStudy := Lang.Current + "/blog" + project.CaseStudyIndex
+	caseStudy := Lang.Current + "/blog/" + project.CaseStudyIndex
+	url := Lang.Current + "/projects/" + project.URIIndex
 	meta := translation.Meta
 	categories := translation.Categories
 	content := translation.Content
@@ -146,6 +148,7 @@ func ConvertApiProject(project api.Project) ProjectData {
 
 	return ProjectData{
 		Index:      project.URIIndex,
+		Url:        url,
 		GitHubLink: project.GitHubLink,
 		LiveLink:   project.LiveLink,
 		CaseStudy:  &caseStudy,

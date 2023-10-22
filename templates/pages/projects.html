@@ -3,7 +3,10 @@
 {{template "hero.html" .Hero}} {{end}}
 <section class="grid grid-cols-3 gap-8 m-8 pb-20">
   {{range .Projects }}
-  <div class="bg-white rounded-lg opacity-70 hover:shadow-md hover:opacity-100">
+  <a
+    href="/{{.Url}}"
+    class="bg-white rounded-lg opacity-70 hover:shadow-md hover:opacity-100"
+  >
     <img
       src="{{.Content.HeroImage}}"
       alt="Image 2"
@@ -27,8 +30,7 @@
       </span>
       {{ end }}
     </div>
-  </div>
-  <!-- modal with project data -->
+  </a>
   {{end}}
 </section>
 {{end}}
