@@ -4,5 +4,9 @@
 {{if .UseHero}}
 <!-- Page Hero -->
 {{template "hero.html" .Hero}} {{end}} 
-<h1 class="text-lg text-white">Hello Blog</h1>
+<section class="grid grid-cols-3 gap-8 mt-2 p-6">
+    {{range .Posts}}
+    {{template "blog-card.html" .}}
+    {{end}}
+</section>
 {{end}}

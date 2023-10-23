@@ -1,6 +1,22 @@
-{{template "layout.html" .}}
-{{define "content"}} {{if .UseHero}}
+{{template "layout.html" .}} {{define "content"}} {{if .UseHero}}
 <!-- Page Hero -->
-{{template "hero.html" .Hero}} {{end}} 
-<h1 class="text-lg text-white">Hello Project</h1>
+{{template "hero.html" .Hero}} {{end}}
+<style>
+  @import url("/static/css/dynamic-content.css");
+</style>
+<section
+  class="m-2 p-10 backdrop-blur-md text-white rounded-md md:-mt-4 z-10 about"
+>
+  <h2 class="text-5xl text-yellow-400 mb-3">Project Name</h2>
+  <h3 class="text-2xl text-slate-200 mb-2">
+    <a href="" class="hover:text-green-400">Demo</a> |
+    <a href="" class="hover:text-green-400">Source Code</a> |
+    <a href="" class="hover:text-green-400">Case Study</a>
+  </h3>
+  <h4></h4>
+  <article class="pb-6 dynamic-content">
+
+  </article>
+</section>
+
 {{end}}
