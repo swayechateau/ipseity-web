@@ -7,33 +7,46 @@ import (
 	"strings"
 )
 
+var handlerMap = map[string]func(http.ResponseWriter, *http.Request){
+	"about":    AboutHandler,
+	"projects": ProjectsHandler,
+	"blog":     BlogHandler,
+	"":         IndexHandler, // Default handler
+}
+
 func SiteHandler(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	parts := strings.Split(path, "/")
+	log.Printf("Path: %s", path) // log the path being accessed
+	log.Printf("Parts: %v", parts)
 	var page string
+	var subPage string
+
+	if len(parts) >= 4 {
+		subPage = parts[3]
+		log.Printf("SubPage: %s", subPage)
+	}
 	if len(parts) >= 3 {
 		page = parts[2]
 	}
-	log.Printf("Page: %s", page)
-	if page == "" {
-		// Default handler
-		IndexHandler(w, r)
+
+	if page == "blog" && subPage != "" {
+		PostHandler(w, r, subPage)
+		return
 	}
 
-	switch {
-	case page == "about":
-		AboutHandler(w, r)
-		return
-	case page == "projects":
-		ProjectsHandler(w, r)
-		return
-	case page == "blog":
-		BlogHandler(w, r)
-		return
-	default:
-		// NotFoundHandler(w, r)
+	if page == "projects" && subPage != "" {
+		ProjectHandler(w, r, subPage)
 		return
 	}
+	handler, exists := handlerMap[page]
+	if !exists {
+		NotFoundHandler(w, r) // handle not found case
+		return
+	}
+
+	log.Printf("Page: %s", page) // log the page being accessed
+	handler(w, r)                // dispatch to the appropriate handler
 }
 
 func RenderPage(w http.ResponseWriter, page string, data interface{}) {
@@ -50,7 +63,7 @@ func pageDataTemplate() PageData {
 	keywords := state.Site.Meta[Lang.Current].Keywords
 
 	words := ConvertApiWords(state.Words.All)
-	log.Printf("Words: %v", words)
+	log.Printf("Words: %v", words["FeaturedProjects"])
 
 	routes := []Route{
 		{

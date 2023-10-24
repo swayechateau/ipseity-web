@@ -58,28 +58,18 @@ func FetchFeaturedProjectsData() error {
 	return nil
 }
 
-// // GetProjectsData returns the stored site data
-// func GetProjectsData(featured bool) []Project {
-// 	once.Do(func() {
-// 		err := FetchProjectsData(featured)
-// 		if err != nil {
-// 			// Handle the error, e.g., log it
-// 			log.Printf("Error: %s", err)
-// 		}
-// 	})
-// 	return projectsData
-// }
+func FetchProject(id string) (Project, error) {
+	var project Project
+	resp, err := http.Get(url + "/projects/" + id)
+	if err != nil {
+		return project, err
+	}
+	defer resp.Body.Close()
 
-// // GetProjectsData returns the stored site data
-// func GetProjectData(index string) Project {
-// 	project := Project{}
-// 	var err error
-// 	once.Do(func() {
-// 		project, err = FetchProjectData(index)
-// 		if err != nil {
-// 			// Handle the error, e.g., log it
-// 			log.Printf("Error: %s", err)
-// 		}
-// 	})
-// 	return project
-// }
+	err = json.NewDecoder(resp.Body).Decode(&project)
+	if err != nil {
+		return project, err
+	}
+
+	return project, nil
+}

@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"html/template"
 	"ipseity-web/api"
 	"log"
 	"strings"
@@ -34,10 +35,13 @@ type PageData struct {
 	UseHero   bool
 	Hero      *PageHero
 	Projects  *[]ProjectData
+	Project   *ProjectData
 	Posts     *[]PostData
+	Post      *PostData
 	Founded   *int
 	Routes    []Route
 	Words     *map[string]string
+	Content   *template.HTML
 }
 
 type Route struct {

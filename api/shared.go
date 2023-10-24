@@ -1,6 +1,8 @@
 package api
 
-import "time"
+import (
+	"time"
+)
 
 //Shared Data types
 
@@ -38,28 +40,25 @@ type Translation struct {
 
 // Editor Js Types
 type ContentData struct {
-	EditorJs *EditorJs `json:"editorjs"`
-	Markdown *string   `json:"markdown"`
+	EditorJs EditorJs `json:"editorjs"`
+	Markdown string   `json:"markdown"`
 }
 
 type EditorJs struct {
-	Time    *int     `json:"time"`
-	Blocks  *[]Block `json:"blocks"`
-	Version *string  `json:"version"`
+	Time    int     `json:"time"`
+	Blocks  []Block `json:"blocks"`
+	Version string  `json:"version"`
 }
 
 type Block struct {
-	Type *string    `json:"type"`
-	Data *BlockData `json:"data"`
+	Id    string                 `json:"id,omitempty"`
+	Type  string                 `json:"type"`
+	Data  map[string]interface{} `json:"data"`
+	Tunes Tune                   `json:"tunes,omitempty"`
 }
 
-type BlockData struct {
-	Text    *string   `json:"text"`
-	Level   *int      `json:"level"`
-	Style   *string   `json:"style"`
-	Items   *[]string `json:"items"`
-	Caption *string   `json:"caption"`
-	File    *File     `json:"file"`
+type Tune struct {
+	Footnotes []string `json:"footnotes,omitempty"`
 }
 
 type File struct {
