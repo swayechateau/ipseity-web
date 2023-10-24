@@ -2,7 +2,6 @@ package routes
 
 import (
 	"ipseity-web/api"
-	"ipseity-web/convert"
 	"log"
 	"net/http"
 )
@@ -13,7 +12,7 @@ func ProjectsHandler(w http.ResponseWriter, r *http.Request) {
 	projects := ConvertApiProjects(state.Projects.All)
 	data.Hero.Image = "https://swayechateau.com/media/image/futaba-computer.jpg"
 	data.Hero.Title = "Projects"
-	data.Projects = &projects
+	data.Content = &projects
 	RenderPage(w, "projects", data)
 }
 
@@ -38,22 +37,7 @@ func ProjectHandler(w http.ResponseWriter, r *http.Request, slug string) {
 	data.Hero.Image = hero
 	data.Hero.Title = project.Content.Title
 
-	cType := ""
-	var content interface{}
-	if project.Content.ContentType != nil {
-		cType = *project.Content.ContentType
-		if cType == "editorjs" {
-			content = project.Content.ContentData.EditorJs
-		}
-		if cType == "markdown" {
-			content = project.Content.ContentData.Markdown
-		}
-	}
-	log.Printf("Content Type: %s", cType)
-	log.Printf("Content Data: %v", project.Content.ContentData)
-
-	c := convert.ConvertToHtml(cType, content)
-	log.Printf("Content: %s", c)
+	c := convertConent(project.Content.ContentType, project.Content.ContentData)
 	data.Content = &c
 
 	RenderPage(w, "project", data)

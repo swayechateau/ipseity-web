@@ -7,6 +7,11 @@ import (
 	"os"
 )
 
+type homeData struct {
+	Projects *[]ProjectData
+	Posts    *[]PostData
+}
+
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Index Handler")
 	log.Printf("Getting projects data")
@@ -21,9 +26,10 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	data.Hero.Large = true
 	data.Hero.TitleGlow = true
 	data.Hero.Image = "https://swayechateau.com/media/image/deep-blue.jpg"
-	data.Projects = &featuredProjects
-	data.Posts = &featuredPosts
-
+	data.Content = homeData{
+		Projects: &featuredProjects,
+		Posts:    &featuredPosts,
+	}
 	RenderPage(w, "home", data)
 }
 

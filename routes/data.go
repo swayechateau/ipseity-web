@@ -3,6 +3,7 @@ package routes
 import (
 	"html/template"
 	"ipseity-web/api"
+	"ipseity-web/convert"
 	"log"
 	"strings"
 	"time"
@@ -34,14 +35,10 @@ type PageData struct {
 	Socials   []api.Social
 	UseHero   bool
 	Hero      *PageHero
-	Projects  *[]ProjectData
-	Project   *ProjectData
-	Posts     *[]PostData
-	Post      *PostData
 	Founded   *int
 	Routes    []Route
 	Words     *map[string]string
-	Content   *template.HTML
+	Content   interface{}
 }
 
 type Route struct {
@@ -202,4 +199,26 @@ func ConvertApiWord(word api.Word) string {
 
 func isBlank(s string) bool {
 	return len(strings.TrimSpace(s)) == 0
+}
+
+func convertConent(contentType *string, c api.ContentData) template.HTML {
+	var content interface{}
+	cType := ""
+	if contentType != nil {
+		cType = *contentType
+	}
+
+	if cType == "editorjs" {
+		content = c.EditorJs
+	}
+	if cType == "markdown" {
+		content = c.Markdown
+	}
+
+	log.Printf("Content Type: %s", cType)
+	log.Printf("Content Data: %v", content)
+
+	html := convert.ConvertToHtml(cType, content)
+	log.Printf("Content: %s", html)
+	return html
 }

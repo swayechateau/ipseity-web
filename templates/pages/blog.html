@@ -5,7 +5,7 @@
 <!-- Page Hero -->
 {{template "hero.html" .Hero}} {{end}} 
 <section class="grid grid-cols-3 gap-8 mt-2 p-6">
-    {{range .Posts}}
+    {{range .Content}}
     {{template "blog-card.html" .}}
     {{end}}
 </section>
