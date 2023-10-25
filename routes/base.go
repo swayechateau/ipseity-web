@@ -35,7 +35,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 
 func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
-	image := "https://swayechateau.com/media/image/deep-blue.jpg"
+	image := "https://swayechateau.com/media/image/lost-city.jpg"
 	data := pageDataTemplate()
 	mTitle := "404 Not Found | Swaye Chateau"
 	mDesc := "The page you seek is not here."

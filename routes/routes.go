@@ -62,8 +62,7 @@ func pageDataTemplate() PageData {
 	description := state.Site.Meta[Lang.Current].Description
 	keywords := state.Site.Meta[Lang.Current].Keywords
 
-	words := ConvertApiWords(state.Words.All)
-	log.Printf("Words: %v", words["FeaturedProjects"])
+	words := getPageTranslations()
 
 	routes := []Route{
 		{
@@ -107,6 +106,6 @@ func pageDataTemplate() PageData {
 		},
 		Founded: &state.Site.YearFounded,
 		Routes:  routes,
-		Words:   &words,
+		Words:   words,
 	}
 }

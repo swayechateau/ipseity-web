@@ -14,16 +14,11 @@
         <h2 class="py-2 text-2xl">
             {{ .Subtitle }}
             {{if .GlowText}}
-            <span id="who" class="animate-glow">{{ .GlowText }}</span>
+            <span class="animate-glow">{{ .GlowText }}</span>
             {{end}}
         </h2>
         {{end}}
-        {{if not .Subtitle}}
-        <h2 class="py-2 text-2xl">
-            I am
-            <span id="who" class="animate-glow"> Under Development!</span>
-        </h2>
-        {{end}}
+
     </div>
 </div>
 <div class="w-full h-32 bg-fade-bottom"></div>

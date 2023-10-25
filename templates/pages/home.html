@@ -9,6 +9,7 @@
     <div class="text-center">
       <h1 class="text-3xl font-semibold text-gray-100 md:text-6xl">
         {{if .Words.FeaturedProjects}}
+        {{.Words.FeaturedProjects}}
         {{else}}
         Featured Projects
         {{end}}
@@ -19,7 +20,7 @@
     </div>
     <!-- Project Showcase -->
     <div id="projects-showcase" class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
-      {{if .Projects}} {{range .Projects}}
+      {{if .Content.Projects}} {{range .Content.Projects}}
       <!-- Page Featured Projects -->
       {{template "project-card.html" .}}
       {{end}} {{end}}
@@ -204,6 +205,7 @@
     <div class="mb-12 text-center">
       <h1 class="text-4xl font-semibold text-gray-100 md:text-6xl">
         {{if .Words.RecentPosts}}
+        {{.Words.RecentPosts}}
         {{else}}
         Recent Posts
         {{end}}
@@ -215,7 +217,7 @@
       </a>
     </div>
     <div class="flex flex-wrap -m-4">
-      {{if .Posts}} {{range .Posts}}
+      {{if .Content.Posts}} {{range .Content.Posts}}
       <!-- Page Featured Posts -->
       {{template "post-card.html" .}}
       {{end}} {{end}}

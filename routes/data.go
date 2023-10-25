@@ -37,7 +37,7 @@ type PageData struct {
 	Hero      *PageHero
 	Founded   *int
 	Routes    []Route
-	Words     *map[string]string
+	Words     pageTranslations
 	Content   interface{}
 }
 
@@ -72,6 +72,7 @@ type PostData struct {
 	Index      string
 	Link       string
 	Published  string
+	Updated    string
 	Meta       api.Meta
 	Categories api.Category
 	Content    api.Content
@@ -134,7 +135,10 @@ func ConvertApiProjects(projects []api.Project) []ProjectData {
 func ConvertApiProject(project api.Project) ProjectData {
 	baseImage := "/static/project-image.jpg"
 	translation := project.Translations[Lang.Current]
-	caseStudy := Lang.Current + "/blog/" + project.CaseStudyIndex
+	caseStudy := ""
+	if project.CaseStudyIndex != "" {
+		caseStudy = Lang.Current + "/blog/" + project.CaseStudyIndex
+	}
 	url := Lang.Current + "/projects/" + project.URIIndex
 	meta := translation.Meta
 	categories := translation.Categories
@@ -179,6 +183,7 @@ func ConvertApiPost(post api.Post) PostData {
 		Index:      post.URIIndex,
 		Link:       link,
 		Published:  post.PublishedAt,
+		Updated:    post.UpdatedAt,
 		Meta:       *meta,
 		Categories: *categories,
 		Content:    *content,
@@ -221,4 +226,44 @@ func convertConent(contentType *string, c api.ContentData) template.HTML {
 	html := convert.ConvertToHtml(cType, content)
 	log.Printf("Content: %s", html)
 	return html
+}
+
+func setMeta(data *PageData, meta *api.Meta) {
+	data.Meta.Title = &meta.Title
+	data.Meta.Description = &meta.Description
+	data.Meta.Keywords = &meta.Keywords
+}
+
+type pageTranslations struct {
+	Home             string
+	About            string
+	Projects         string
+	Blog             string
+	ViewDemo         string
+	OpenSource       string
+	ViewCode         string
+	CaseStudy        string
+	FeaturedProjects string
+	CommentsDisabled string
+}
+
+func getPageTranslations() pageTranslations {
+	words := ConvertApiWords(state.Words.All)
+	data := pageTranslations{
+		// Home:             words["home"],
+		// About:            words["about"],
+		// Projects:         words["projects"],
+		// Blog:             words["blog"],
+		Home:             PageRoutes.Home[Lang.Current],
+		About:            PageRoutes.About[Lang.Current],
+		Projects:         PageRoutes.Projects[Lang.Current],
+		Blog:             PageRoutes.Blog[Lang.Current],
+		ViewDemo:         words["viewDemo"],
+		OpenSource:       words["openSource"],
+		ViewCode:         words["viewCode"],
+		CaseStudy:        words["caseStudy"],
+		FeaturedProjects: words["featuredProjects"],
+		CommentsDisabled: words["commentsDisabled"],
+	}
+	return data
 }

@@ -9,16 +9,16 @@
   <section class="-mt-9 z-10 p-6 mx-4">
     <article class="bg-slate-100 max-w-full relative p-4">
       <div class="flex relative flex-row">
-        <div class="text-blue-400">Updated: <time datetime="Wednesday, January 1st 2020"
+        <div class="text-blue-400">Updated: <time datetime="{{.Content.Updated}}"
             class="text-gray-500">Wednesday, January 1st 2020</time></div>
         <div class="grow"></div>
-        <div class="p-2 bg-slate-300 rounded text-sm">main category</div>
+        <div class="p-2 bg-slate-300 rounded text-sm uppercase">{{ .Content.Category.Main }}</div>
       </div>
       <div class="py-6">
         {{template "dynamic-content.html" .Content.Data}}
       </div>
       <div class="flex">
-        <div class="uppercase text-blue-400">published: <time datetime="Wednesday, January 1st 2020" class="text-gray-500">Wednesday, January 1st
+        <div class="capitalize text-blue-400">published: <time datetime="{{.Content.Published}}" class="text-gray-500">Wednesday, January 1st
             2020</time>
         </div>
         <div class="grow"></div>

@@ -19,7 +19,10 @@ func BlogHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 type postData struct {
-	Data *template.HTML
+	Data      *template.HTML
+	Category  api.Category
+	Published string
+	Updated   string
 }
 
 func PostHandler(w http.ResponseWriter, r *http.Request, slug string) {
@@ -34,20 +37,29 @@ func PostHandler(w http.ResponseWriter, r *http.Request, slug string) {
 	}
 
 	post := ConvertApiPost(p)
+	setMeta(&data, &post.Meta)
 	hero := ""
 	if post.Content.HeroImage != nil {
 		hero = *post.Content.HeroImage
 	}
-	data.Meta.Title = &post.Meta.Title
-	data.Meta.Description = &post.Meta.Description
-	data.Meta.Keywords = &post.Meta.Keywords
 	data.Hero.Image = hero
 	data.Hero.Title = post.Content.Title
+	data.Hero.Subtitle = setReadtime(*post.Content.ReadTime)
 	c := convertConent(post.Content.ContentType, post.Content.ContentData)
 	data.Content = postData{
-		Data: &c,
+		Data:      &c,
+		Category:  post.Categories,
+		Published: post.Published,
+		Updated:   post.Updated,
 	}
 
 	//  Executes the layout template
 	RenderPage(w, "post", data)
+}
+
+func setReadtime(rT int) string {
+	if rT == 1 {
+		return "1 minute read"
+	}
+	return string(rT) + " minutes read"
 }

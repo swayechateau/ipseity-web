@@ -5,15 +5,17 @@
     @import url("/static/css/dynamic-content.css");
 </style>
 <section class="m-2 p-10 backdrop-blur-md text-white rounded-md md:-mt-4 z-10 about">
-    <h2 class="text-5xl text-yellow-400 mb-3">Project Name</h2>
+    <h2 class="text-5xl text-yellow-400 mb-3">{{ .Content.Title }}</h2>
     <h3 class="text-2xl text-slate-200 mb-2">
-        <a href="" class="hover:text-green-400">Demo</a> |
-        <a href="" class="hover:text-green-400">Source Code</a> |
-        <a href="" class="hover:text-green-400">Case Study</a>
+        <a href="{{.Content.Demo}}" class="hover:text-green-400">{{.Words.ViewDemo}}</a>
+        {{if .Content.Open}} |
+        <a href="{{.Content.Code}}" class="hover:text-green-400">{{.Words.ViewCode}}</a>
+        {{end}}{{if .Content.Study}} |
+        <a href="{{.Content.Study}}" class="hover:text-green-400">{{.Words.CaseStudy}}</a> {{end}}
     </h3>
     <h4></h4>
     <article class="pb-6">
-        {{template "dynamic-content.html" .Content}}
+        {{template "dynamic-content.html" .Content.Data}}
     </article>
 </section>
 
