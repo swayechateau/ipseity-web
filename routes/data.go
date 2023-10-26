@@ -244,6 +244,11 @@ type pageTranslations struct {
 	ViewCode         string
 	CaseStudy        string
 	FeaturedProjects string
+	RecentPosts      string
+	RecentVideos     string
+	Contact          string
+	Updated          string
+	Published        string
 	CommentsDisabled string
 }
 
@@ -263,6 +268,11 @@ func getPageTranslations() pageTranslations {
 		ViewCode:         words["viewCode"],
 		CaseStudy:        words["caseStudy"],
 		FeaturedProjects: words["featuredProjects"],
+		RecentPosts:      words["recentPosts"],
+		RecentVideos:     words["recentVideos"],
+		Updated:          words["updated"],
+		Published:        words["published"],
+		Contact:          words["contact"],
 		CommentsDisabled: words["commentsDisabled"],
 	}
 	return data
