@@ -34,7 +34,7 @@ func ProjectHandler(w http.ResponseWriter, r *http.Request, slug string) {
 		NotFoundHandler(w, r)
 		return
 	}
-	log.Printf("Project: %s", p)
+
 	project := ConvertApiProject(p)
 	data := pageDataTemplate()
 	setMeta(&data, &project.Meta)

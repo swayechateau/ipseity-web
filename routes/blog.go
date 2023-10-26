@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"html/template"
 	"ipseity-web/api"
 	"log"
@@ -61,5 +62,5 @@ func setReadtime(rT int) string {
 	if rT == 1 {
 		return "1 minute read"
 	}
-	return string(rT) + " minutes read"
+	return fmt.Sprintf("%d minutes read", rT)
 }
