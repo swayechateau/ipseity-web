@@ -2,14 +2,16 @@ package convert
 
 import (
 	"html/template"
+	"log"
 
 	"github.com/swayechateau/solemnity-editorjs-go/editorjs"
 )
 
 func EditorJsToHtml(b interface{}) template.HTML {
 	var html template.HTML
-	editorjs, err := editorjs.ConvertToEditorJs(b)
+	editorjs, err := editorjs.Convert(b)
 	if err != nil {
+		log.Printf("Error converting editorjs: %s", err)
 		return html
 	}
 	html = template.HTML(editorjs.ToHtml())

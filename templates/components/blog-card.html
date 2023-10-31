@@ -1,4 +1,4 @@
-<div class="bg-white relative rounded-lg shadow-md">
+<a href="/{{ .Link }}"  class="bg-white relative rounded-lg shadow-md hover:opacity-90 min-h-[300px]">
     <img src="{{.Content.HeroImage}}" alt="{{.Content.Title }}" class="w-full h-full object-cover rounded-lg absolute opacity-75">
     <div class="relative p-6">
         <div class="flex flex-col text-end">
@@ -10,7 +10,7 @@
             <time datetime="{{ .Published }}" class="text-gray-500">{{ .Published }}</time>
         </div>
         <div class="items-end">
-            <a href="/{{ .Link }}" class="mt-4 px-4 py-2 bg-yellow-400 text-white rounded uppercase text-sm">READ MORE</a>
+            <div class="mt-4 px-4 py-2 bg-yellow-400 text-white rounded uppercase text-sm inline-block">READ MORE</div>
         </div>
     </div>
-</div>
+</a>

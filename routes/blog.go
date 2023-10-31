@@ -1,11 +1,12 @@
 package routes
 
 import (
-	"fmt"
 	"html/template"
 	"ipseity-web/api"
 	"log"
 	"net/http"
+	"regexp"
+	"strconv"
 )
 
 func BlogHandler(w http.ResponseWriter, r *http.Request) {
@@ -24,6 +25,7 @@ type postData struct {
 	Category  api.Category
 	Published string
 	Updated   string
+	Time      TimeText
 }
 
 func PostHandler(w http.ResponseWriter, r *http.Request, slug string) {
@@ -52,15 +54,20 @@ func PostHandler(w http.ResponseWriter, r *http.Request, slug string) {
 		Category:  post.Categories,
 		Published: post.Published,
 		Updated:   post.Updated,
+		Time:      post.Time,
 	}
 
 	//  Executes the layout template
 	RenderPage(w, "post", data)
 }
 
-func setReadtime(rT int) string {
-	if rT == 1 {
-		return "1 minute read"
+func setReadtime(readTime int) string {
+	words := getWords()
+	rT := words["xMinuteRead"]
+	if readTime == 1 {
+		return rT
 	}
-	return fmt.Sprintf("%d minutes read", rT)
+
+	re := regexp.MustCompile(`\d+`)
+	return re.ReplaceAllString(rT, strconv.Itoa(readTime))
 }

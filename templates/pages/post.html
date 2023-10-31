@@ -9,9 +9,9 @@
   <section class="-mt-9 z-10 p-6 mx-4">
     <article class="bg-slate-100 max-w-full relative p-4">
       <div class="flex relative flex-row">
-        <div class="text-blue-400">
+        <div class="text-blue-400 capitalize">
           {{.Words.Updated}}: <time datetime="{{.Content.Updated}}"
-            class="text-gray-500">Wednesday, January 1st 2020</time>
+            class="text-gray-500">{{.Content.Time.Updated}}</time>
         </div>
         <div class="grow"></div>
         <div class="p-2 bg-slate-300 rounded text-sm uppercase">
@@ -23,8 +23,7 @@
       </div>
       <div class="flex">
         <div class="capitalize text-blue-400">
-          {{.Words.Published}}: <time datetime="{{.Content.Published}}" class="text-gray-500">Wednesday, January 1st
-            2020</time>
+          {{.Words.Published}}: <time datetime="{{.Content.Published}}" class="text-gray-500">{{.Content.Time.Published}}</time>
         </div>
         <div class="grow"></div>
         <p class="text-gray-400 capitalize">

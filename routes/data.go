@@ -9,6 +9,11 @@ import (
 	"time"
 )
 
+type TimeText struct {
+	Updated   string
+	Published string
+}
+
 type PageLanguages struct {
 	Current   string
 	Default   string
@@ -76,6 +81,7 @@ type PostData struct {
 	Meta       api.Meta
 	Categories api.Category
 	Content    api.Content
+	Time       TimeText
 }
 
 var state = api.GetApiData()
@@ -84,40 +90,14 @@ var Lang = PageLanguages{
 	Default:   state.Site.Languages.Default,
 	Available: state.Site.Languages.Available,
 }
-var PageRoutes = PageNavigation{
-	Home: map[string]string{
-		"en": "Home",
-		"fr": "Accueil",
-		"ja": "ホーム",
-		"zh": "主页",
-	},
-	About: map[string]string{
-		"en": "About",
-		"fr": "À propos",
-		"ja": "私について",
-		"zh": "关于我",
-	},
-	Projects: map[string]string{
-		"en": "Projects",
-		"fr": "Projets",
-		"ja": "プロジェクト",
-		"zh": "项目",
-	},
-	Blog: map[string]string{
-		"en": "Blog",
-		"fr": "Blogue",
-		"ja": "ブログ",
-		"zh": "博客",
-	},
-}
 
 func PollApi() {
-	updateInterval := 24 // Hours
+	updateInterval := 1 // Hours
 	// Poll the API and store the data in a JSON file on the server periodically.
 	// Convert updateInterval to time.Duration before multiplying.
 	ticker := time.NewTicker(time.Duration(updateInterval) * time.Hour)
 	for range ticker.C {
-		log.Println("Daily API Check...")
+		log.Println("Hourly API Check...")
 		api.UpdateCache()
 		state = api.GetApiData()
 	}
@@ -142,6 +122,8 @@ func ConvertApiProject(project api.Project) ProjectData {
 	url := Lang.Current + "/projects/" + project.URIIndex
 	meta := translation.Meta
 	categories := translation.Categories
+	subs := sortSubCategories(*categories)
+	categories.Sub = &subs
 	content := translation.Content
 	log.Printf("Hero Image: %v", content.HeroImage)
 
@@ -177,6 +159,8 @@ func ConvertApiPost(post api.Post) PostData {
 	translation := post.Translations[Lang.Current]
 	meta := translation.Meta
 	categories := translation.Categories
+	subs := sortSubCategories(*categories)
+	categories.Sub = &subs
 	content := translation.Content
 	link := Lang.Current + "/blog/" + post.URIIndex
 	return PostData{
@@ -187,6 +171,10 @@ func ConvertApiPost(post api.Post) PostData {
 		Meta:       *meta,
 		Categories: *categories,
 		Content:    *content,
+		Time: TimeText{
+			Updated:   setTimeText(post.UpdatedAt),
+			Published: setTimeText(post.PublishedAt),
+		},
 	}
 }
 
@@ -205,7 +193,15 @@ func ConvertApiWord(word api.Word) string {
 func isBlank(s string) bool {
 	return len(strings.TrimSpace(s)) == 0
 }
-
+func sortSubCategories(categories api.Category) []string {
+	var sorted []string
+	for _, category := range *categories.Sub {
+		if category != categories.Main {
+			sorted = append(sorted, category)
+		}
+	}
+	return sorted
+}
 func convertConent(contentType *string, c api.ContentData) template.HTML {
 	var content interface{}
 	cType := ""
@@ -246,6 +242,9 @@ type pageTranslations struct {
 	FeaturedProjects string
 	RecentPosts      string
 	RecentVideos     string
+	ReadTime         string
+	XMinuteRead      string
+	AboutMe          string
 	Contact          string
 	Updated          string
 	Published        string
@@ -253,16 +252,12 @@ type pageTranslations struct {
 }
 
 func getPageTranslations() pageTranslations {
-	words := ConvertApiWords(state.Words.All)
+	words := getWords()
 	data := pageTranslations{
-		// Home:             words["home"],
-		// About:            words["about"],
-		// Projects:         words["projects"],
-		// Blog:             words["blog"],
-		Home:             PageRoutes.Home[Lang.Current],
-		About:            PageRoutes.About[Lang.Current],
-		Projects:         PageRoutes.Projects[Lang.Current],
-		Blog:             PageRoutes.Blog[Lang.Current],
+		Home:             words["home"],
+		About:            words["about"],
+		Projects:         words["projects"],
+		Blog:             words["blog"],
 		ViewDemo:         words["viewDemo"],
 		OpenSource:       words["openSource"],
 		ViewCode:         words["viewCode"],
@@ -273,7 +268,23 @@ func getPageTranslations() pageTranslations {
 		Updated:          words["updated"],
 		Published:        words["published"],
 		Contact:          words["contact"],
+		ReadTime:         words["readTime"],
+		XMinuteRead:      words["xMinuteRead"],
+		AboutMe:          words["aboutMe"],
 		CommentsDisabled: words["commentsDisabled"],
 	}
 	return data
+}
+
+func getWords() map[string]string {
+	return ConvertApiWords(state.Words.All)
+}
+
+func setTimeText(timeStamp string) string {
+	t, err := time.Parse(time.RFC3339, timeStamp)
+	if err != nil {
+		log.Printf("Error parsing time: %s", err)
+		return ""
+	}
+	return t.Format("January 2, 2006")
 }
