@@ -6,7 +6,7 @@
 <!-- Projects -->
 <section id="projects" class="relative z-10 pb-8">
   <div class="mx-3 -mt-32 rounded-2xl bg-[rgba(0,0,0,.5)] p-8 text-gray-200 backdrop-blur-sm md:mx-10">
-    <div class="text-center">
+    <div class="mb-12 text-center">
       <h1 class="text-3xl font-semibold text-gray-100 md:text-6xl capitalize">
         {{if .Words.FeaturedProjects}}
         {{.Words.FeaturedProjects}}
@@ -14,9 +14,11 @@
         Featured Projects
         {{end}}
       </h1>
-      <p class="my-4 text-xl">
-        Here are some of the projects I have worked on.
-      </p>
+      <a href="{{.Languages.Current}}/projects" rel="noopener noreferrer">
+        <div class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg">
+          See More Projects
+        </div>
+      </a>
     </div>
     <!-- Project Showcase -->
     <div id="projects-showcase" class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
@@ -125,7 +127,7 @@
         {{end}}
       </h1>
       <a href="{{.Languages.Current}}/blog" rel="noopener noreferrer">
-        <div class="my-2 text-base text-green-300 hover:text-green-400 md:text-lg">
+        <div class="my-2 text-2xl text-green-300 hover:text-green-400 md:text-lg">
           See More Posts
         </div>
       </a>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link id="dynamic-css" rel="stylesheet" href="./dynamic-content.css" />
+  </head>
+
+  <body>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .container {
+        border-radius: 15px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        margin: 20px;
+        color: #111;
+        position: relative;
+      }
+    </style>
+    <section class="container">
+      <div class="dynamic-content">
+        <p>
+          Hey. Meet the new Editor. On this picture you can see it in action.
+          Then, try a demo 🤓
+        </p>
+        <h3>Key features</h3>
+
+        <ul>
+          <li>It is a block-style editor</li>
+          <li>It returns clean data output in JSON</li>
+          <li>
+            Designed to be extendable and pluggable with a
+            <a href="https://editorjs.io/creating-a-block-tool">simple API</a>
+          </li>
+        </ul>
+
+        <h3>What does it mean «block-styled editor»</h3>
+        <p>
+          Workspace in classic editors is made of a single contenteditable
+          element, used to create different HTML markups. Editor.js workspace
+          consists of separate Blocks: paragraphs, headings, images, lists,
+          quotes, etc. Each of them is an independent
+          <sup data-tune="footnotes">1</sup> contenteditable element (or more
+          complex structure) provided by Plugin and united by Editor's Core.
+        </p>
+        <h3>What does it mean clean data output?</h3>
+        <p>
+          There are dozens of ready-to-use Blocks and a simple API
+          <sup data-tune="footnotes">2</sup> for creating any Block you need.
+          For example, you can implement Blocks for Tweets, Instagram posts,
+          surveys and polls, CTA buttons, and even games.
+        </p>
+        <p>
+          Classic WYSIWYG editors produce raw HTML-markup with both content data
+          and content appearance. On the contrary,
+          <mark class="cdx-marker">Editor.js outputs JSON object</mark> with
+          data of each Block.
+        </p>
+        <a href="https://drive.google.com/user/catalog/my-file.pdf">My file</a>
+        <p>
+          Given data can be used as you want: render with HTML for Web clients,
+          render natively for mobile apps, create the markup for Facebook
+          Instant Articles or Google AMP, generate an audio version, and so on.
+        </p>
+        <p>
+          Clean data is useful to sanitize, validate and process on the backend.
+        </p>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>Paragraph</p>
+        <p>Bold</p>
+        <p>Italic</p>
+        <a href="#" alt="Link">Link</a>
+        <pre><code>Code</code></pre>
+        <figure>
+          <img src="https://via.placeholder.com/150" alt="placeholder" />
+          <figcaption>placeholder</figcaption>
+        </figure>
+        <blockquote>Blockquote</blockquote>
+        <figure>
+          <img src="https://via.placeholder.com/1500" alt="placeholder" />
+          <figcaption>placeholder</figcaption>
+        </figure>
+
+        <ul>
+          <li>Unordered List</li>
+          <li>Unordered List</li>
+          <li>Unordered List</li>
+        </ul>
+
+        <ol>
+          <li>Ordered List</li>
+          <li>Ordered List</li>
+          <li>Ordered List</li>
+        </ol>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Table Header</th>
+              <th>Table Header</th>
+              <th>Table Header</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Table Cell</td>
+              <td>Table Cell</td>
+              <td>Table Cell</td>
+            </tr>
+            <tr>
+              <td>Table Cell</td>
+              <td>Table Cell</td>
+              <td>Table Cell</td>
+            </tr>
+            <tr>
+              <td>Table Cell</td>
+              <td>Table Cell</td>
+              <td>Table Cell</td>
+            </tr>
+          </tbody>
+        </table>
+        <pre><code>Code Block</code></pre>
+        <iframe
+          src="https://www.youtube.com/embed/6OctHLex_Io?si=zKUGNwi53viSq_7P"
+          width="100%"
+          height="100%"
+        ></iframe>
+        <button class="file-card">
+          <div class="file-type">PDF</div>
+          <div>
+            <h4>Sample Document</h4>
+            <p>2.5 MB</p>
+          </div>
+        </button>
+      </div>
+      <style>
+        .file-card {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          min-width: 300px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .file-type {
+          font-size: 20px;
+          margin-right: 10px;
+        }
+
+        .file-details {
+          flex-grow: 1;
+        }
+
+        .file-name {
+          font-size: 18px;
+        }
+
+        .file-size {
+          font-size: 14px;
+          color: #666;
+        }
+      </style>
+    </section>
+  </body>
+</html>

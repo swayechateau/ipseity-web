@@ -6,35 +6,39 @@
 </style>
 <div>
   <!-- article -->
-  <section class="-mt-9 z-10 p-6 mx-4">
-    <article class="bg-slate-100 max-w-full relative p-4">
-      <div class="flex relative flex-row">
-        <div class="text-blue-400 capitalize">
-          {{.Words.Updated}}: <time datetime="{{.Content.Updated}}"
-            class="text-gray-500">{{.Content.Time.Updated}}</time>
+  <section class="-mt-9 z-10 md:p-6 md:mx-4 mx-1 p-3">
+    <article class="bg-slate-800 max-w-full relative p-4 rounded">
+      <div class="flex relative sm:flex-row flex-col">
+        <div class="text-blue-400 capitalize order-last sm:order-first">
+          {{.Words.Updated}}:
+          <time datetime="{{.Content.Updated}}" class="text-gray-500"
+            >{{.Content.Time.Updated}}</time
+          >
         </div>
-        <div class="grow"></div>
-        <div class="p-2 bg-slate-300 rounded text-sm uppercase">
-          {{ .Content.Category.Main }}
+        <div class="sm:grow"></div>
+        <div class="text-end">
+          <div
+            class="p-2 bg-slate-600 text-slate-200 rounded text-sm uppercase inline-block"
+          >
+            {{ .Content.Category.Main }}
+          </div>
         </div>
       </div>
-      <div class="py-6">
+      <div class="py-6 text-slate-200">
         {{template "dynamic-content.html" .Content.Data}}
       </div>
       <div class="flex">
         <div class="capitalize text-blue-400">
-          {{.Words.Published}}: <time datetime="{{.Content.Published}}" class="text-gray-500">{{.Content.Time.Published}}</time>
+          {{.Words.Published}}:
+          <time datetime="{{.Content.Published}}" class="text-gray-500"
+            >{{.Content.Time.Published}}</time
+          >
         </div>
         <div class="grow"></div>
-        <p class="text-gray-400 capitalize">
-          {{ .Words.CommentsDisabled }}
-        </p>
-
+        <p class="text-gray-400 capitalize">{{ .Words.CommentsDisabled }}</p>
       </div>
     </article>
-    <aside class="prose lg:prose-xl max-w-none">
-
-    </aside>
+    <aside class="prose lg:prose-xl max-w-none"></aside>
   </section>
   <!-- /article -->
   <!-- related -->
